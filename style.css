@@ -42,3 +42,21 @@ footer {
     text-align: center;
     padding: 1rem;
 }
+.banner-header {
+    background-image: url('images/banner.jpg'); /* Path to your image */
+    background-size: cover; /* Makes sure the image covers the entire header */
+    background-position: center; /* Centers the image */
+    height: 300px; /* Adjust height based on the size you want */
+    color: white; /* Text color */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+.header-content {
+    background: rgba(0, 0, 0, 0.5); /* Optional: Adds a dark overlay for better text visibility */
+    padding: 20px;
+    border-radius: 10px;
+}
