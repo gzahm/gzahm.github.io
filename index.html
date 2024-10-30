@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Pages Website</title>
+    <title>My Multimedia Website</title>
     <link rel="stylesheet" href="style.css">
     <style>
         body {
@@ -35,61 +35,58 @@
             background: #333;
             color: #fff;
         }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        video {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 1rem 0;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to House of Zahm</h1>
+        <h1>Welcome to My Multimedia Website</h1>
         <nav>
             <a href="#home" style="color:white; padding: 10px;">Home</a>
-            <a href="#about" style="color:white; padding: 10px;">About</a>
-            <a href="#contact" style="color:white; padding: 10px;">Contact</a>
+            <a href="#gallery" style="color:white; padding: 10px;">Gallery</a>
+            <a href="#videos" style="color:white; padding: 10px;">Videos</a>
         </nav>
     </header>
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-}
 
-header {
-    background: #333;
-    color: #fff;
-    padding: 1rem;
-    text-align: center;
-}
+    <div class="container">
+        <section id="home" class="content">
+            <h2>Home Section</h2>
+            <p>Welcome to my website! Here you can find images and videos showcasing my work and interests.</p>
+        </section>
 
-.container {
-    width: 80%;
-    margin: auto;
-}
+        <section id="gallery" class="content">
+            <h2>Image Gallery</h2>
+            <p>Here are some of my favorite images:</p>
+            <img src="image1.jpg" alt="Description of image 1">
+            <img src="image2.jpg" alt="Description of image 2">
+            <img src="image3.jpg" alt="Description of image 3">
+        </section>
 
-.content {
-    padding: 2rem;
-    background: #fff;
-    margin: 2rem 0;
-}
+        <section id="videos" class="content">
+            <h2>Video Collection</h2>
+            <p>Check out these videos:</p>
+            <video controls>
+                <source src="video1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <video controls>
+                <source src="video2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </section>
+    </div>
 
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 1rem 0;
-}
-
-video {
-    width: 100%;
-    height: auto;
-    display: block;
-    margin: 1rem 0;
-}
-
-footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1rem;
-}
-
+    <footer>
+        <p>&copy; 2024 Your Name</p>
+    </footer>
+</body>
 </html>
-
