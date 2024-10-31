@@ -95,3 +95,17 @@ footer {
   color: #333;
   margin-top: 8px;
 }
+.image-grid {
+  display: flex;
+  gap: 10px; /* Space between images */
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.image-grid img {
+  width: 48%; /* Adjust to fit two images side by side */
+  height: auto;
+  border-radius: 5px; /* Optional: rounded corners */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Optional: shadow for a nice effect */
+}
