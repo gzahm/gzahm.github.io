@@ -6,8 +6,7 @@ body {
     height: 100vh;
     margin: 0;
     overflow: hidden;
-    background: url('https://source.unsplash.com/1600x900/?cosmos,stars') no-repeat center center fixed;
-    background-size: cover;
+    background: radial-gradient(circle at center, #1a1a2e, #0d0d0f);
     color: #ffffff;
 }
 
@@ -15,7 +14,6 @@ body {
     position: relative;
     width: 80vmin;
     height: 80vmin;
-    animation: slowPulse 6s infinite;
     perspective: 1000px;
 }
 
@@ -24,55 +22,57 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) rotateY(0deg);
-    background: radial-gradient(circle, #ff8c42, #ff5733);
-    border: 3px solid #ffbf00;
-    box-shadow: 0 0 20px rgba(255, 195, 113, 0.8), 0 0 35px rgba(255, 87, 51, 0.5);
+    transform: translate(-50%, -50%);
+    background: #30336b;
+    border: 2px solid #ffbb00;
+    box-shadow: 0 0 15px rgba(255, 191, 0, 0.5), 0 0 20px rgba(48, 51, 107, 0.8);
     color: #ffffff;
-    padding: 30px;
+    padding: 20px;
     border-radius: 50%;
     text-align: center;
     cursor: pointer;
     font-size: 1.5em;
+    animation: pulse 3s infinite alternate;
 }
 
-/* Branch Nodes with 3D Rotation Effect */
+/* Branch Nodes with smoother orbit effect */
 .branch {
     position: absolute;
-    width: 140px;
-    padding: 15px;
-    background: radial-gradient(circle, #b84e1c, #8b2e0e);
-    border: 2px solid #a47b00;
+    width: 120px;
+    padding: 10px;
+    background: #6c5ce7;
+    border: 2px solid #9b59b6;
     color: white;
     text-align: center;
     border-radius: 50%;
     cursor: pointer;
     transition: transform 0.4s ease, box-shadow 0.4s ease;
-    box-shadow: 0 0 15px rgba(235, 94, 40, 0.7), 0 0 25px rgba(184, 78, 28, 0.4);
-    animation: orbit 12s infinite linear;
+    box-shadow: 0 0 12px rgba(108, 92, 231, 0.5);
+    animation: orbit 20s infinite linear;
+    opacity: 0.9;
 }
 
-/* Assigning 3D positions to nodes for revolving effect */
-.branch.travel { animation-delay: 0s; transform-origin: -200px -200px; }
-.branch.sports { animation-delay: 2s; transform-origin: 200px -200px; }
-.branch.career { animation-delay: 4s; transform-origin: 200px 200px; }
-.branch.interests { animation-delay: 6s; transform-origin: -200px 200px; }
-.branch.learning { animation-delay: 8s; transform-origin: -300px 0; }
-.branch.about { animation-delay: 10s; transform-origin: 300px 0; }
+/* Assigning positions for nodes */
+.branch.travel { transform-origin: -200px -200px; animation-delay: 0s; }
+.branch.sports { transform-origin: 200px -200px; animation-delay: 3s; }
+.branch.career { transform-origin: 200px 200px; animation-delay: 6s; }
+.branch.interests { transform-origin: -200px 200px; animation-delay: 9s; }
+.branch.learning { transform-origin: -300px 0; animation-delay: 12s; }
+.branch.about { transform-origin: 300px 0; animation-delay: 15s; }
 
 /* Hover Effect */
 .branch:hover {
-    transform: scale(1.15);
-    box-shadow: 0 0 20px rgba(235, 94, 40, 0.8), 0 0 40px rgba(184, 78, 28, 0.5);
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(108, 92, 231, 0.6), 0 0 30px rgba(155, 89, 182, 0.4);
 }
 
 /* Animations */
-@keyframes slowPulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.04); }
+@keyframes pulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.05); }
 }
 
 @keyframes orbit {
-    from { transform: rotateY(0deg) translateZ(0px); }
-    to { transform: rotateY(360deg) translateZ(0px); }
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
