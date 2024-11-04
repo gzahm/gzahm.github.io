@@ -1,1 +1,82 @@
 
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(to bottom right, #ffcc80, #ff7043, #283593);
+    background-attachment: fixed;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+.brain-container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    animation: slowPulse 5s infinite;
+}
+
+/* Center Brain Node */
+.brain-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 112, 67, 0.8);
+    border: 2px solid #ff9800;
+    box-shadow: 0 0 15px rgba(255, 204, 128, 0.8);
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+    font-size: 1.4em;
+    animation: fadeIn 2s ease;
+}
+
+/* Branch Nodes */
+.branch {
+    position: absolute;
+    width: 130px;
+    padding: 12px;
+    background: rgba(38, 198, 218, 0.7);
+    border: 2px solid #0288d1;
+    color: white;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.4s ease, background-color 0.4s ease;
+    animation: fadeIn 2s ease forwards;
+    opacity: 0; /* Starts hidden, will fade in */
+    box-shadow: 0 0 12px rgba(3, 169, 244, 0.6);
+}
+
+/* Branch positions around the center */
+.branch.travel { top: 5%; left: 50%; transform: translateX(-50%); animation-delay: 0.5s; }
+.branch.sports { top: 50%; left: 90%; transform: translateY(-50%); animation-delay: 1s; }
+.branch.career { top: 90%; left: 50%; transform: translate(-50%, -100%); animation-delay: 1.5s; }
+.branch.interests { top: 50%; left: 10%; transform: translateY(-50%); animation-delay: 2s; }
+.branch.learning { top: 20%; left: 85%; transform: translate(-50%, -50%); animation-delay: 2.5s; }
+.branch.about { top: 75%; left: 15%; transform: translate(-50%, -50%); animation-delay: 3s; }
+
+/* Hover Effect */
+.branch:hover {
+    transform: scale(1.15);
+    background: rgba(25, 118, 210, 0.8);
+    box-shadow: 0 0 20px rgba(3, 169, 244, 0.8);
+}
+
+/* Animations */
+@keyframes slowPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.04); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
