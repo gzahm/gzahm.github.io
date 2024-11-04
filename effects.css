@@ -1,4 +1,3 @@
-
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -6,8 +5,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background: linear-gradient(to bottom right, #ffcc80, #ff7043, #283593);
-    background-attachment: fixed;
+    background: radial-gradient(circle at 50% 50%, #1c1b29, #0d0d0f 80%);
     color: #ffffff;
     overflow: hidden;
 }
@@ -16,7 +14,7 @@ body {
     position: relative;
     width: 400px;
     height: 400px;
-    animation: slowPulse 5s infinite;
+    animation: slowPulse 6s infinite;
 }
 
 /* Center Brain Node */
@@ -25,16 +23,16 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgba(255, 112, 67, 0.8);
-    border: 2px solid #ff9800;
-    box-shadow: 0 0 15px rgba(255, 204, 128, 0.8);
+    background: radial-gradient(circle, #ff8c42, #ff5733);
+    border: 3px solid #ffbf00;
+    box-shadow: 0 0 20px rgba(255, 195, 113, 0.8), 0 0 35px rgba(255, 87, 51, 0.5);
     color: #ffffff;
     padding: 20px;
     border-radius: 50%;
     text-align: center;
     cursor: pointer;
     font-size: 1.4em;
-    animation: fadeIn 2s ease;
+    animation: glow 3s infinite alternate;
 }
 
 /* Branch Nodes */
@@ -42,16 +40,16 @@ body {
     position: absolute;
     width: 130px;
     padding: 12px;
-    background: rgba(38, 198, 218, 0.7);
-    border: 2px solid #0288d1;
+    background: radial-gradient(circle, #b84e1c, #8b2e0e);
+    border: 2px solid #a47b00;
     color: white;
     text-align: center;
     border-radius: 50%;
     cursor: pointer;
-    transition: transform 0.4s ease, background-color 0.4s ease;
-    animation: fadeIn 2s ease forwards;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    animation: fadeIn 2s ease forwards, glow 3s infinite alternate;
     opacity: 0; /* Starts hidden, will fade in */
-    box-shadow: 0 0 12px rgba(3, 169, 244, 0.6);
+    box-shadow: 0 0 15px rgba(235, 94, 40, 0.7), 0 0 25px rgba(184, 78, 28, 0.4);
 }
 
 /* Branch positions around the center */
@@ -65,8 +63,7 @@ body {
 /* Hover Effect */
 .branch:hover {
     transform: scale(1.15);
-    background: rgba(25, 118, 210, 0.8);
-    box-shadow: 0 0 20px rgba(3, 169, 244, 0.8);
+    box-shadow: 0 0 20px rgba(235, 94, 40, 0.8), 0 0 40px rgba(184, 78, 28, 0.5);
 }
 
 /* Animations */
@@ -78,5 +75,10 @@ body {
 @keyframes fadeIn {
     from { opacity: 0; transform: scale(0.9); }
     to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes glow {
+    from { box-shadow: 0 0 10px rgba(255, 195, 113, 0.8), 0 0 15px rgba(255, 87, 51, 0.5); }
+    to { box-shadow: 0 0 15px rgba(255, 195, 113, 1), 0 0 30px rgba(255, 87, 51, 0.7); }
 }
 
