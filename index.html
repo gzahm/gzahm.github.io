@@ -3,66 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gabriel Zahm</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f4f8;
-        }
-
-        .brain-container {
-            position: relative;
-            width: 400px;
-            height: 400px;
-        }
-
-        /* Center Brain Node */
-        .brain-center {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #5c6bc0;
-            color: white;
-            padding: 20px;
-            border-radius: 50%;
-            text-align: center;
-            cursor: pointer;
-            font-size: 1.2em;
-        }
-
-        /* Branch Nodes */
-        .branch {
-            position: absolute;
-            width: 120px;
-            padding: 10px;
-            background-color: #81c784;
-            color: white;
-            text-align: center;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        /* Branch positions around the center */
-        .branch.travel { top: 10%; left: 50%; transform: translateX(-50%); }
-        .branch.sports { top: 50%; left: 90%; transform: translateY(-50%); }
-        .branch.career { top: 90%; left: 50%; transform: translate(-50%, -100%); }
-        .branch.interests { top: 50%; left: 10%; transform: translateY(-50%); }
-        .branch.learning { top: 30%; left: 80%; transform: translate(-50%, -50%); }
-        .branch.about { top: 70%; left: 20%; transform: translate(-50%, -50%); }
-
-        /* Hover Effect */
-        .branch:hover {
-            transform: scale(1.1);
-            background-color: #66bb6a;
-        }
-    </style>
+    <title>My Brain Map</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
