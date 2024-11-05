@@ -158,3 +158,9 @@ footer {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
 }
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  color: #333;
+}
