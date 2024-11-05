@@ -3,56 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Modern Website</title>
+  <title>Modern Ideas Website</title>
   <link rel="stylesheet" href="tryout.css">
 </head>
 <body>
-  <!-- Navigation Bar -->
+  <!-- Header with Tabs -->
   <header>
     <nav>
-      <div class="logo">BrandName</div>
-      <ul class="nav-links">
+      <div class="logo">My Ideas</div>
+      <ul class="tab-links">
         <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#food">Food</a></li>
+        <li><a href="#travel">Travel</a></li>
+        <li><a href="#interests">Interests</a></li>
+        <li><a href="#activity">Activity</a></li>
       </ul>
-      <div class="burger">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
     </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section id="home" class="hero">
-    <h1>Welcome to Our Modern Website</h1>
-    <p>Crafting beautiful web experiences with room to grow.</p>
-    <a href="#services" class="cta-button">Get Started</a>
+  <!-- Home Section with Introduction -->
+  <section id="home" class="tab-content active">
+    <h1>Welcome to My Page</h1>
+    <p>This is a place to share ideas and explore interests.</p>
+    <div class="about-me">
+      <h2>About Me</h2>
+      <p>Hello! I'm [Your Name], and this is where I share my favorite ideas on food, travel, and more.</p>
+    </div>
   </section>
 
-  <!-- Content Section 1 -->
-  <section id="about" class="content-section">
-    <h2>About Us</h2>
-    <p>This section is perfect for introducing your company or project.</p>
+  <!-- Food Section -->
+  <section id="food" class="tab-content">
+    <h2>Food</h2>
+    <p>Share your favorite recipes, restaurants, and culinary experiences.</p>
   </section>
 
-  <!-- Content Section 2 -->
-  <section id="services" class="content-section">
-    <h2>Our Services</h2>
-    <p>Describe the services you offer and how you can help your audience.</p>
+  <!-- Travel Section -->
+  <section id="travel" class="tab-content">
+    <h2>Travel</h2>
+    <p>Document travel stories, destination guides, and tips for exploring the world.</p>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="content-section">
-    <h2>Contact Us</h2>
-    <p>Let your visitors know how they can get in touch.</p>
+  <!-- Interests Section -->
+  <section id="interests" class="tab-content">
+    <h2>Interests</h2>
+    <p>Explore your hobbies, books you love, and other passions.</p>
+  </section>
+
+  <!-- Activity Section -->
+  <section id="activity" class="tab-content">
+    <h2>Activity</h2>
+    <p>Share your favorite activities, sports, and outdoor adventures.</p>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2024 BrandName. All rights reserved.</p>
+    <p>&copy; 2024 My Ideas. All rights reserved.</p>
   </footer>
 
   <script src="script.js"></script>
