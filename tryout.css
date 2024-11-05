@@ -25,6 +25,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .logo {
@@ -55,7 +56,7 @@ nav {
 
 /* Hero / Home Section */
 .hero {
-  background: url(https://github.com/user-attachments/assets/c4c4d931-1ab7-4f43-a9e7-8dee22f07fee) no-repeat center center/cover;
+  background: url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
   color: #fff;
   height: 100vh;
   display: flex;
@@ -81,7 +82,7 @@ nav {
 /* Tab Content Sections */
 .tab-content {
   padding: 4em 2em;
-  display: block; /* ensure content is visible
+  display: none;
   text-align: center;
 }
 
@@ -100,67 +101,74 @@ nav {
   margin: 0 auto;
 }
 
-/* Footer */
+/* Kodak Roll Image Gallery */
+.kodak-roll {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.kodak-roll img {
+  width: 100%;
+  max-width: 200px;
+  border-radius: 8px;
+}
+
+/* Responsive Footer */
 footer {
   background-color: #005f73;
   color: #fff;
   padding: 1em;
   text-align: center;
 }
+
+/* Media Queries for Responsive Design */
+
+/* Tablet screens */
 @media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tab-links {
+    flex-direction: column;
+  }
+
+  .tab-links li {
+    margin: 8px 0;
+  }
+
+  .content {
+    padding: 1em;
+  }
+
+  .header-content h1 {
+    font-size: 1.8em;
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 480px) {
+  .header-content h1 {
+    font-size: 1.5em;
+    text-align: center;
+  }
+
   .tab-links {
     flex-direction: column;
     align-items: center;
   }
-  .tab-links li {
-    margin: 0.5em 0;
-  }
-  .hero {
-    height: 70vh;
-    padding: 1em;
-  }
-  .about-me {
-    padding: 1em;
-  }
-}
-.tab-links a.active {
-  color: #d4a373; /* Highlight active tab with softer orange */
-  border-bottom: 2px solid #ffba08; /* Orange underline for active tab */
-}
-.kodak-roll {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Adjust minmax width as desired */
-  gap: 10px;
-  overflow-x: auto;
-  padding: 15px 0;
-  background-color: #333;
-  border-top: 5px solid black;
-  border-bottom: 5px solid black;
-  scroll-snap-type: x mandatory;
-}
 
-.kodak-roll img {
-  width: 100%;
-  aspect-ratio: 4 / 3; /* Fixed aspect ratio for each image */
-  object-fit: cover;
-  border-radius: 5px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  scroll-snap-align: start;
-}
-@media (min-width: 600px) {
-  .kodak-roll {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  .kodak-roll img {
+    width: 100%;
+    max-width: 100%;
   }
-}
 
-@media (min-width: 1200px) {
-  .kodak-roll {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  iframe {
+    width: 100%;
+    height: auto;
   }
-}
-.content {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  color: #333;
 }
