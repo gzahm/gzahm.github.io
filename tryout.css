@@ -55,7 +55,7 @@ nav {
 
 /* Hero / Home Section */
 .hero {
-  background: url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
+  background: url(https://github.com/user-attachments/assets/c4c4d931-1ab7-4f43-a9e7-8dee22f07fee) no-repeat center center/cover;
   color: #fff;
   height: 100vh;
   display: flex;
@@ -106,4 +106,24 @@ footer {
   color: #fff;
   padding: 1em;
   text-align: center;
+}
+@media (max-width: 768px) {
+  .tab-links {
+    flex-direction: column;
+    align-items: center;
+  }
+  .tab-links li {
+    margin: 0.5em 0;
+  }
+  .hero {
+    height: 70vh;
+    padding: 1em;
+  }
+  .about-me {
+    padding: 1em;
+  }
+}
+.tab-links a.active {
+  color: #d4a373; /* Highlight active tab with softer orange */
+  border-bottom: 2px solid #ffba08; /* Orange underline for active tab */
 }
