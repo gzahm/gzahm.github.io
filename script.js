@@ -13,8 +13,23 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   function fetchContent(tabName) {
-    // Default to home if tabName is empty
-    const fileName = tabName ? `${tabName}.html` : 'home.html';
+    // If the tab is "home", show default HTML without fetching
+    if (tabName === 'home') {
+      // Optional: Reset the content area to its initial HTML if desired
+      contentArea.innerHTML = `
+        <div id="home-content">
+          <h1>Welcome to PlaZahm</h1>
+          <div class="about-me">
+            <h2>About Me</h2>
+            <p>Hello! I'm Gabriel, and this is where I share my favorite ideas on food, travel, and more.</p>
+          </div>
+        </div>
+      `;
+      return; // Skip fetch for "home" to use default content
+    }
+
+    // Fetch content for other tabs (e.g., food.html, travel.html)
+    const fileName = `${tabName}.html`;
 
     fetch(fileName)
       .then(response => {
@@ -29,6 +44,6 @@ document.addEventListener('DOMContentLoaded', function() {
       });
   }
 
-  // Load home content by default on page load
+  // Load the home content from the default HTML by not calling fetch
   fetchContent('home');
 });
