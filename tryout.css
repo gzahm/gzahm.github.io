@@ -81,7 +81,7 @@ nav {
 /* Tab Content Sections */
 .tab-content {
   padding: 4em 2em;
-  display: none;
+  display: block; /* ensure content is visible
   text-align: center;
 }
 
