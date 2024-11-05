@@ -1,7 +1,18 @@
-// JavaScript to handle the mobile burger menu
-const burger = document.querySelector('.burger');
-const navLinks = document.querySelector('.nav-links');
+// JavaScript to handle tab navigation
+const tabs = document.querySelectorAll('.tab-links a');
+const contents = document.querySelectorAll('.tab-content');
 
-burger.addEventListener('click', () => {
-  navLinks.classList.toggle('nav-active');
+tabs.forEach(tab => {
+  tab.addEventListener('click', (event) => {
+    event.preventDefault();
+    
+    // Remove active class from all tabs and contents
+    tabs.forEach(t => t.classList.remove('active'));
+    contents.forEach(content => content.classList.remove('active'));
+
+    // Add active class to the selected tab and content
+    tab.classList.add('active');
+    const targetContent = document.querySelector(tab.getAttribute('href'));
+    targetContent.classList.add('active');
+  });
 });
