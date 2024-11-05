@@ -1,18 +1,34 @@
-// JavaScript to handle tab navigation
-const tabs = document.querySelectorAll('.tab-links a');
-const contents = document.querySelectorAll('.tab-content');
+document.addEventListener('DOMContentLoaded', function() {
+  const tabs = document.querySelectorAll('.tab-links a');
+  const contentArea = document.getElementById('content-area');
 
-tabs.forEach(tab => {
-  tab.addEventListener('click', (event) => {
-    event.preventDefault();
-    
-    // Remove active class from all tabs and contents
-    tabs.forEach(t => t.classList.remove('active'));
-    contents.forEach(content => content.classList.remove('active'));
+  tabs.forEach(tab => {
+    tab.addEventListener('click', (event) => {
+      event.preventDefault();
+      const tabName = tab.getAttribute('data-tab');
 
-    // Add active class to the selected tab and content
-    tab.classList.add('active');
-    const targetContent = document.querySelector(tab.getAttribute('href'));
-    targetContent.classList.add('active');
+      // Fetch content based on the tab selected
+      fetchContent(tabName);
+    });
   });
+
+  function fetchContent(tabName) {
+    // Default to home if tabName is empty
+    const fileName = tabName ? `${tabName}.html` : 'home.html';
+
+    fetch(fileName)
+      .then(response => {
+        if (!response.ok) throw new Error('Content not found');
+        return response.text();
+      })
+      .then(content => {
+        contentArea.innerHTML = content;
+      })
+      .catch(error => {
+        contentArea.innerHTML = `<p>Content for "${tabName}" not found.</p>`;
+      });
+  }
+
+  // Load home content by default on page load
+  fetchContent('home');
 });
