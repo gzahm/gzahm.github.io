@@ -17,16 +17,12 @@ body {
     perspective: 1000px;
 }
 
-/* Center Brain Node */
 .brain-center {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background: #30336b;
-    border: 2px solid #ffbb00;
-    box-shadow: 0 0 15px rgba(255, 191, 0, 0.5), 0 0 20px rgba(48, 51, 107, 0.8);
-    color: #ffffff;
     padding: 20px;
     border-radius: 50%;
     text-align: center;
@@ -35,44 +31,17 @@ body {
     animation: pulse 3s infinite alternate;
 }
 
-/* Branch Nodes with smoother orbit effect */
 .branch {
     position: absolute;
     width: 120px;
     padding: 10px;
     background: #6c5ce7;
     border: 2px solid #9b59b6;
-    color: white;
     text-align: center;
     border-radius: 50%;
     cursor: pointer;
     transition: transform 0.4s ease, box-shadow 0.4s ease;
     box-shadow: 0 0 12px rgba(108, 92, 231, 0.5);
     animation: orbit 20s infinite linear;
-    opacity: 0.9;
 }
 
-/* Assigning positions for nodes */
-.branch.travel { transform-origin: -200px -200px; animation-delay: 0s; }
-.branch.sports { transform-origin: 200px -200px; animation-delay: 3s; }
-.branch.career { transform-origin: 200px 200px; animation-delay: 6s; }
-.branch.interests { transform-origin: -200px 200px; animation-delay: 9s; }
-.branch.learning { transform-origin: -300px 0; animation-delay: 12s; }
-.branch.about { transform-origin: 300px 0; animation-delay: 15s; }
-
-/* Hover Effect */
-.branch:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 15px rgba(108, 92, 231, 0.6), 0 0 30px rgba(155, 89, 182, 0.4);
-}
-
-/* Animations */
-@keyframes pulse {
-    0%, 100% { transform: translate(-50%, -50%) scale(1); }
-    50% { transform: translate(-50%, -50%) scale(1.05); }
-}
-
-@keyframes orbit {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
