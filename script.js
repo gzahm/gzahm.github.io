@@ -47,3 +47,49 @@ document.addEventListener('DOMContentLoaded', function() {
   // Load the home content from the default HTML by not calling fetch
   fetchContent('home');
 });
+tabs.forEach(tab => {
+  tab.addEventListener('click', (event) => {
+    event.preventDefault();
+    const tabName = tab.getAttribute('data-tab');
+
+    // Remove active class from all tabs and add it to the clicked tab
+    tabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+
+    // Fetch content based on the tab selected
+    fetchContent(tabName);
+  });
+});
+function fetchContent(tabName) {
+  // Show loading message while content is fetched
+  contentArea.innerHTML = `<p>Loading content...</p>`;
+  
+  if (tabName === 'home') {
+    contentArea.innerHTML = `
+      <div id="home-content">
+        <h1>Welcome to PlaZahm</h1>
+        <div class="about-me">
+          <h2>About Me</h2>
+          <p>Hello! I'm Gabriel, and this is where I share my favorite ideas on food, travel, and more.</p>
+        </div>
+      </div>
+    `;
+    return;
+  }
+
+  const fileName = `${tabName}.html`;
+
+  fetch(fileName)
+    .then(response => {
+      if (!response.ok) throw new Error('Content not found');
+      return response.text();
+    })
+    .then(content => {
+      contentArea.innerHTML = content;
+    })
+    .catch(error => {
+      contentArea.innerHTML = `<p>Content for "${tabName}" not found.</p>`;
+    });
+}
+// Set "Home" as active tab by default
+document.querySelector('.tab-links a[data-tab="home"]').classList.add('active');
