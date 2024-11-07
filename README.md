@@ -7,5 +7,7 @@ body {
     background-position: center;
     background-color: #f0f0f0; /* Optional: Background color to fill any gaps */
 }
-
+<head>
+    <link rel="stylesheet" href="background-page.css">
+</head>
 
