@@ -16,7 +16,7 @@ body {
 header {
   background-color: #005f73; /* Dark blue */
   padding: 1em 2em;
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 1000;
 }
