@@ -172,3 +172,23 @@ footer {
     height: auto;
   }
 }
+#scrollTopButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    background-color: #555; /* Customize color */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none; /* Hide by default */
+    font-size: 14px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3); /* Optional shadow */
+}
+
+/* Optional hover effect */
+#scrollTopButton:hover {
+    background-color: #333;
+}
