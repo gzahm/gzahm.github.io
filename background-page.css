@@ -1,4 +1,5 @@
 
+
 /* Background and overall settings */
 body {
     background-image: url('https://github.com/user-attachments/assets/e94f0987-a0cb-46c1-bd84-3c64316db5e0'); /* Replace with your actual image path */
@@ -20,7 +21,7 @@ body {
     border-radius: 10px;
 }
 
-/* Header styling with shadow for emphasis */
+/* Header styling with bold and shadow for emphasis */
 header.banner-header {
     text-align: center;
     margin-bottom: 20px;
@@ -28,22 +29,40 @@ header.banner-header {
 
 .header-content h1 {
     font-size: 2.5em;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Text shadow for header emphasis */
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Stronger shadow for header emphasis */
     margin: 0;
 }
 
 .header-content p {
     font-size: 1.2em;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Slight shadow for subtitle */
+    font-weight: normal;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Subtle shadow for subtitle */
 }
 
-/* Content styling with high contrast for readability */
-.content h2, .content h3 {
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8); /* Slight shadow for headers */
+/* Distinctive styling for section headers */
+.content h2 {
+    font-size: 2em;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Strong shadow for emphasis */
+    background-color: rgba(255, 255, 255, 0.1); /* Slight background color for distinction */
+    padding: 5px 10px;
+    border-left: 5px solid #f5c518; /* Accent border to distinguish headers */
+    margin-top: 20px;
+    border-radius: 5px;
 }
 
+.content h3 {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+    margin-top: 15px;
+    padding: 5px 0;
+}
+
+/* Styling for body text */
 .content p {
-    color: white; /* Pure white text for contrast */
+    color: white; /* Solid white text for contrast */
     margin-top: 10px;
     line-height: 1.6;
     background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent dark background behind text */
