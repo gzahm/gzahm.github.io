@@ -32,6 +32,17 @@ nav {
   color: #fff;
   font-size: 1.5em;
   font-weight: bold;
+  display: flex;
+  align-items: center;
+  padding-left: 40px; /* Adjust as needed for spacing */
+
+  /* Background image for the logo */
+  background-image: url('https://github.com/user-attachments/assets/d1215c1a-ee13-4381-90bf-3175dd2eb51a');
+  background-size: contain; /* Scales image to fit */
+  background-repeat: no-repeat;
+  background-position: left center; /* Aligns image to the left */
+
+  height: 50px; /* Adjust height based on image size */
 }
 
 .tab-links {
