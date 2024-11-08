@@ -58,3 +58,22 @@ document.addEventListener('DOMContentLoaded', function() {
   // Load the home content by default on page load
   fetchContent('home');
 });
+// Get the button
+const scrollTopButton = document.getElementById("scrollTopButton");
+
+// Show button when scrolling down 20px
+window.onscroll = function() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        scrollTopButton.style.display = "block";
+    } else {
+        scrollTopButton.style.display = "none";
+    }
+};
+
+// Scroll to top when button is clicked
+scrollTopButton.onclick = function() {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth" // Smooth scrolling
+    });
+};
