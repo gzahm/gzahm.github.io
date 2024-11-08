@@ -1,3 +1,4 @@
+
 /* Background and overall settings */
 body {
     background-image: url('https://github.com/user-attachments/assets/e94f0987-a0cb-46c1-bd84-3c64316db5e0'); /* Replace with your actual image path */
@@ -9,17 +10,17 @@ body {
     padding: 0;
 }
 
-/* Wrapper with a darker overlay to make content more readable */
+/* Content wrapper with a darker background for text readability */
 .content-wrapper {
     position: relative;
     max-width: 800px;
     margin: auto;
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.7); /* Darker, semi-transparent background for readability */
+    background-color: rgba(0, 0, 0, 0.85); /* Darker background for readability */
     border-radius: 10px;
 }
 
-/* Header styling with reduced blur */
+/* Header styling with shadow for emphasis */
 header.banner-header {
     text-align: center;
     margin-bottom: 20px;
@@ -27,20 +28,27 @@ header.banner-header {
 
 .header-content h1 {
     font-size: 2.5em;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Sharper text shadow */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Text shadow for header emphasis */
     margin: 0;
 }
 
 .header-content p {
     font-size: 1.2em;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Slight shadow for subtitle */
 }
 
-/* Styling for text sections */
-.content h2, .content h3, .content p {
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8); /* Subtle shadow to separate text from background */
+/* Content styling with high contrast for readability */
+.content h2, .content h3 {
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8); /* Slight shadow for headers */
+}
+
+.content p {
+    color: white; /* Pure white text for contrast */
     margin-top: 10px;
     line-height: 1.6;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent dark background behind text */
+    padding: 10px;
+    border-radius: 5px;
 }
 
 /* Map container styling */
