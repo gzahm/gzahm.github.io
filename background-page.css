@@ -21,7 +21,7 @@ body {
 .banner-header {
     background-color: forestgreen; /* Set background to forest green */
     height: 300px; /* Adjust height as needed */
-    color: white; /* Text color */
+    color: black; /* Text color */
     display: flex;
     align-items: center;
     justify-content: center;
