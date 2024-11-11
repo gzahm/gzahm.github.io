@@ -43,7 +43,7 @@ footer {
     padding: 1rem;
 }
 .banner-header {
-    background-image: url('images/banner.jpg'); /* Path to your image */
+    background-image: url('https://github.com/user-attachments/assets/15ff56a3-9645-445b-8c01-fe29302be75e'); /* Path to your image */
     background-size: cover; /* Makes sure the image covers the entire header */
     background-position: center; /* Centers the image */
     height: 300px; /* Adjust height based on the size you want */
@@ -51,8 +51,11 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate (-50%, -50%)
+    text-align: center;    
 }
 
 .header-content {
