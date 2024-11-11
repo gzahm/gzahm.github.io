@@ -142,3 +142,29 @@ body {
         width: 60px; /* Further reduction for very small screens */
     }
 }
+/* Apply to all media items like images, videos, iframes */
+.media-frame {
+    padding: 10px; /* Space between media and frame */
+    background-color: #D2B48C; /* Base color for wood (tan) */
+    border: 5px solid #8B4513; /* Darker color to emulate wood edge */
+    border-radius: 5px;
+    box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.3), /* Inner shadow for depth */
+        0 0 10px rgba(0, 0, 0, 0.5); /* Outer shadow for realistic framing */
+    display: inline-block; /* Allows control over the frame */
+}
+
+/* Optional: Add texture for a more realistic wood look */
+.media-frame::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(45deg, rgba(139, 69, 19, 0.15) 25%, transparent 25%, transparent 50%, rgba(139, 69, 19, 0.15) 50%, rgba(139, 69, 19, 0.15) 75%, transparent 75%, transparent);
+    background-size: 20px 20px;
+    opacity: 0.5;
+    pointer-events: none;
+    border-radius: 5px;
+}
