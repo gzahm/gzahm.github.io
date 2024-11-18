@@ -7,11 +7,17 @@
 }
 
 body {
-    background-image: url('https://github.com/user-attachments/assets/e94f0987-a0cb-46c1-bd84-3c64316db5e0'); /* Travel-specific background */
-    background-size: cover;
-    background-attachment: fixed;
+    background: none; /* Default background for all pages except Travel */
     color: white;
     line-height: 1.6;
+}
+
+/* Travel-specific background */
+body.travel-background {
+    background-image: url('https://github.com/user-attachments/assets/e94f0987-a0cb-46c1-bd84-3c64316db5e0');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
 }
 
 /* Header and Navigation */
