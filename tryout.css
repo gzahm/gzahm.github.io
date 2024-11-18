@@ -35,14 +35,6 @@ nav {
   display: flex;
   align-items: center;
   padding-left: 40px; /* Adjust as needed for spacing */
-
-  /* Background image for the logo */
-  background-image: url('https://github.com/user-attachments/assets/d1215c1a-ee13-4381-90bf-3175dd2eb51a');
-  background-size: contain; /* Scales image to fit */
-  background-repeat: no-repeat;
-  background-position: left center; /* Aligns image to the left */
-
-  height: 50px; /* Adjust height based on image size */
 }
 
 .tab-links {
@@ -112,19 +104,47 @@ nav {
   margin: 0 auto;
 }
 
-/* Kodak Roll Image Gallery */
-.kodak-roll {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-  margin: 20px 0;
+/* Mentoring-specific styles */
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  text-align: center;
 }
 
-.kodak-roll img {
-  width: 100%;
-  max-width: 200px;
+.tab-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tab-btn {
+  background-color: #3498db;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  margin: 0 5px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.tab-btn:hover {
+  background-color: #2980b9;
+}
+
+.tab-content {
+  display: none;
+  background: white;
+  padding: 20px;
+  margin: 10px auto;
+  max-width: 800px;
   border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.tab-btn.active {
+  background-color: #2980b9;
 }
 
 /* Responsive Footer */
@@ -155,51 +175,16 @@ footer {
   .content {
     padding: 1em;
   }
-
-  .header-content h1 {
-    font-size: 1.8em;
-  }
 }
 
 /* Mobile screens */
 @media (max-width: 480px) {
-  .header-content h1 {
-    font-size: 1.5em;
-    text-align: center;
-  }
-
   .tab-links {
     flex-direction: column;
     align-items: center;
   }
 
-  .kodak-roll img {
-    width: 100%;
-    max-width: 100%;
+  .tab-content {
+    padding: 1em;
   }
-
-  iframe {
-    width: 100%;
-    height: auto;
-  }
-}
-#scrollTopButton {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-    background-color: #555; /* Customize color */
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    display: none; /* Hide by default */
-    font-size: 14px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3); /* Optional shadow */
-}
-
-/* Optional hover effect */
-#scrollTopButton:hover {
-    background-color: #333;
 }
