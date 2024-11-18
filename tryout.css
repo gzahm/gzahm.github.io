@@ -7,17 +7,17 @@
 }
 
 body {
-    background: none; /* Default background for all pages except Travel */
-    color: white;
+    background: none; /* Default background */
+    color: black;
     line-height: 1.6;
 }
 
-/* Travel-specific background */
 body.travel-background {
     background-image: url('https://github.com/user-attachments/assets/e94f0987-a0cb-46c1-bd84-3c64316db5e0');
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
+    color: white;
 }
 
 /* Header and Navigation */
@@ -34,7 +34,6 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
 }
 
 .logo {
@@ -56,7 +55,6 @@ nav {
     color: #ffba08;
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s;
 }
 
 .tab-links a:hover {
@@ -64,73 +62,18 @@ nav {
 }
 
 /* Content Wrapper */
-.content-wrapper {
-    position: relative;
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.85); /* For better readability */
-    border-radius: 10px;
+#content-area {
+    padding: 4em 2em;
+    margin-top: 80px;
+    text-align: center;
 }
 
-/* Header Banner */
-.banner-header {
-    background-image: url('https://github.com/user-attachments/assets/c762f6bf-465c-4e44-ab6d-a1bf1bb1e1cb');
-    background-size: cover;
-    background-position: center;
-    height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.header-content h1 {
+#content-area h1 {
     font-size: 2.5em;
-    font-weight: bold;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
 }
 
-/* Section Content */
-.content h2 {
-    font-size: 2em;
-    margin-top: 20px;
-    padding: 10px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-left: 5px solid #f5c518;
-    border-radius: 5px;
-}
-
-.content p {
-    color: white;
-    margin-top: 10px;
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.6);
-    border-radius: 5px;
-}
-
-.kodak-roll {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    margin: 20px auto;
-}
-
-.kodak-roll img {
-    width: 100px;
-    height: auto;
-    border-radius: 5px;
-}
-
-/* Map Container */
-.map-container {
-    overflow: hidden;
-    width: 100%;
-    max-width: 600px;
-    height: 450px;
-    margin: 20px auto;
-    border: 3px solid forestgreen;
-    border-radius: 10px;
+#content-area p {
+    font-size: 1.2em;
 }
 
 /* Scroll to Top Button */
@@ -145,32 +88,8 @@ nav {
     border-radius: 5px;
     cursor: pointer;
     display: none;
-    font-size: 14px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 #scrollTopButton:hover {
     background-color: #333;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .banner-header {
-        height: 200px;
-    }
-    .header-content h1 {
-        font-size: 2em;
-    }
-    .kodak-roll img {
-        width: 80px;
-    }
-}
-
-@media (max-width: 480px) {
-    .header-content h1 {
-        font-size: 1.8em;
-    }
-    .kodak-roll img {
-        width: 60px;
-    }
 }
