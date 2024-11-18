@@ -1,39 +1,46 @@
-<header class="container">
+<div id="mentorship-content">
   <h1>Our Mentoring Services</h1>
-  <p>Select a type of mentoring to learn more about how we can help you reach your goals.</p>
-</header>
+  <p>Select a type of mentoring to explore how we can help you reach your goals.</p>
 
-<!-- Tab Navigation -->
-<div class="tab-container">
-  <button class="tab-btn" onclick="showTab('fitness')">Physical Fitness Mentoring</button>
-  <button class="tab-btn" onclick="showTab('job')">Job Mentoring</button>
-  <button class="tab-btn" onclick="showTab('position')">Position Mentoring</button>
-  <button class="tab-btn" onclick="showTab('life')">Life Mentoring</button>
-  <button class="tab-btn" onclick="showTab('nutrition')">Nutrition Mentoring</button>
-</div>
+  <!-- Local Subtabs -->
+  <div class="subtab-container">
+    <button class="subtab-btn active" data-subtab="fitness">Physical Fitness</button>
+    <button class="subtab-btn" data-subtab="job">Job Mentoring</button>
+    <button class="subtab-btn" data-subtab="position">Position Mentoring</button>
+    <button class="subtab-btn" data-subtab="life">Life Mentoring</button>
+    <button class="subtab-btn" data-subtab="nutrition">Nutrition</button>
+  </div>
 
-<!-- Tab Content -->
-<div id="fitness" class="tab-content">
-  <h2>Physical Fitness Mentoring</h2>
-  <p>Our Physical Fitness Mentoring program helps you achieve fitness goals with personalized guidance, accountability, and a sustainable approach to health and wellness!</p>
-</div>
+  <!-- Subtab Content -->
+  <div id="subtab-content">
+    <!-- Fitness Content (Active by Default) -->
+    <div class="subtab-section" id="fitness" style="display: block;">
+      <h2>Physical Fitness Mentoring</h2>
+      <p>Our Physical Fitness Mentoring program helps you achieve fitness goals with personalized guidance and sustainable health strategies!</p>
+    </div>
 
-<div id="job" class="tab-content" style="display: none;">
-  <h2>Job Mentoring</h2>
-  <p>Our Job Mentoring services are designed to help you navigate your career path, improve your professional skills, and reach your career aspirations with confidence.</p>
-</div>
+    <!-- Job Content -->
+    <div class="subtab-section" id="job" style="display: none;">
+      <h2>Job Mentoring</h2>
+      <p>Our Job Mentoring services help you navigate your career, improve professional skills, and reach your aspirations with confidence.</p>
+    </div>
 
-<div id="position" class="tab-content" style="display: none;">
-  <h2>Position Mentoring</h2>
-  <p>Position Mentoring empowers you to excel in your current role by strengthening leadership, enhancing communication, and providing strategies for professional success.</p>
-</div>
+    <!-- Position Content -->
+    <div class="subtab-section" id="position" style="display: none;">
+      <h2>Position Mentoring</h2>
+      <p>Position Mentoring empowers you to excel in your current role by strengthening leadership and communication skills.</p>
+    </div>
 
-<div id="life" class="tab-content" style="display: none;">
-  <h2>Life Mentoring</h2>
-  <p>Our Life Mentoring services focus on personal growth and fulfillment, guiding you in setting meaningful goals, building resilience, and creating a purpose-driven life.</p>
-</div>
+    <!-- Life Content -->
+    <div class="subtab-section" id="life" style="display: none;">
+      <h2>Life Mentoring</h2>
+      <p>Our Life Mentoring services focus on personal growth and fulfillment, guiding you in setting meaningful goals and creating purpose-driven success.</p>
+    </div>
 
-<div id="nutrition" class="tab-content" style="display: none;">
-  <h2>Nutrition Mentoring</h2>
-  <p>Nutrition Mentoring helps you develop healthy eating habits, understand balanced nutrition, and make choices that support both your physical and mental well-being.</p>
+    <!-- Nutrition Content -->
+    <div class="subtab-section" id="nutrition" style="display: none;">
+      <h2>Nutrition Mentoring</h2>
+      <p>Nutrition Mentoring helps you develop healthy eating habits and balanced nutrition choices to support physical and mental well-being.</p>
+    </div>
+  </div>
 </div>
