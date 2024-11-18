@@ -2,6 +2,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const tabs = document.querySelectorAll('.tab-links a');
   const contentArea = document.getElementById('content-area');
 
+  // Cache the original home content from the DOM
+  const homeContentHTML = document.getElementById('home-content').outerHTML;
+
   // Set "Home" as the active tab by default
   document.querySelector('.tab-links a[data-tab="home"]').classList.add('active');
 
@@ -45,15 +48,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Function to reset home content and update the active tab
   function resetHomeContent() {
-    const homeContent = document.querySelector('#home-content');
-    if (homeContent) {
-      // Restore the original static home page content
-      contentArea.innerHTML = homeContent.outerHTML;
+    // Restore the original static home page content
+    contentArea.innerHTML = homeContentHTML;
 
-      // Set the Home tab as active
-      tabs.forEach(t => t.classList.remove('active'));
-      document.querySelector('.tab-links a[data-tab="home"]').classList.add('active');
-    }
+    // Set the Home tab as active
+    tabs.forEach(t => t.classList.remove('active'));
+    document.querySelector('.tab-links a[data-tab="home"]').classList.add('active');
   }
 
   // Ensure home content is displayed on page load (no fetch required)
