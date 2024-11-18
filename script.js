@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   const tabs = document.querySelectorAll('.tab-links a');
   const contentArea = document.getElementById('content-area');
 
@@ -15,31 +15,19 @@ document.addEventListener('DOMContentLoaded', function() {
       tabs.forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
 
-      // Fetch content based on the tab selected
-      fetchContent(tabName);
+      // Fetch content only for non-home tabs
+      if (tabName !== 'home') {
+        fetchContent(tabName);
+      } else {
+        resetHomeContent();
+      }
     });
   });
 
-  // Function to fetch and display content
+  // Function to fetch and display content for non-home tabs
   function fetchContent(tabName) {
     // Show loading message while content is fetched
     contentArea.innerHTML = `<p>Loading content...</p>`;
-    
-    // If the tab is "home", show default HTML without fetching
-    if (tabName === 'home') {
-      contentArea.innerHTML = `
-        <div id="home-content">
-          <h1>Welcome to PlaZahm</h1>
-          <div class="about-me">
-            <h2>About Me</h2>
-            <p>Hello! I'm Gabriel, and this is where I share my favorite ideas on food, travel, and more.</p>
-          </div>
-        </div>
-      `;
-      return; // Skip fetch for "home" to use default content
-    }
-
-    // Fetch content for other tabs (e.g., food.html, travel.html)
     const fileName = `${tabName}.html`;
 
     fetch(fileName)
@@ -50,30 +38,40 @@ document.addEventListener('DOMContentLoaded', function() {
       .then(content => {
         contentArea.innerHTML = content;
       })
-      .catch(error => {
+      .catch(() => {
         contentArea.innerHTML = `<p>Content for "${tabName}" not found.</p>`;
       });
   }
 
-  // Load the home content by default on page load
-  fetchContent('home');
+  // Function to reset home content (if needed)
+  function resetHomeContent() {
+    const homeContent = document.querySelector('#home-content');
+    if (homeContent) {
+      // Reset the original static home page content
+      contentArea.innerHTML = homeContent.outerHTML;
+    }
+  }
+
+  // Ensure home content is displayed on page load (no fetch required)
+  resetHomeContent();
 });
-// Get the button
-const scrollTopButton = document.getElementById("scrollTopButton");
+
+// Scroll-to-top button logic
+const scrollTopButton = document.getElementById('scrollTopButton');
 
 // Show button when scrolling down 20px
-window.onscroll = function() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        scrollTopButton.style.display = "block";
-    } else {
-        scrollTopButton.style.display = "none";
-    }
+window.onscroll = function () {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    scrollTopButton.style.display = 'block';
+  } else {
+    scrollTopButton.style.display = 'none';
+  }
 };
 
 // Scroll to top when button is clicked
-scrollTopButton.onclick = function() {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth" // Smooth scrolling
-    });
+scrollTopButton.onclick = function () {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth', // Smooth scrolling
+  });
 };
