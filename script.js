@@ -29,7 +29,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Function to fetch and display content for non-home tabs
   function fetchContent(tabName) {
-    // Show loading message while content is fetched
     contentArea.innerHTML = `<p>Loading content...</p>`;
     const fileName = `${tabName}.html`;
 
@@ -40,6 +39,11 @@ document.addEventListener('DOMContentLoaded', function () {
       })
       .then(content => {
         contentArea.innerHTML = content;
+
+        // Reapply tab-switching logic for mentoring tab
+        if (tabName === 'mentoring') {
+          setupMentoringTabs();
+        }
       })
       .catch(() => {
         contentArea.innerHTML = `<p>Content for "${tabName}" not found.</p>`;
@@ -48,12 +52,28 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Function to reset home content and update the active tab
   function resetHomeContent() {
-    // Restore the original static home page content
     contentArea.innerHTML = homeContentHTML;
-
-    // Set the Home tab as active
     tabs.forEach(t => t.classList.remove('active'));
     document.querySelector('.tab-links a[data-tab="home"]').classList.add('active');
+  }
+
+  // Mentoring-specific tab-switching logic
+  function setupMentoringTabs() {
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Hide all tab contents
+        tabContents.forEach(content => content.style.display = 'none');
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+
+        // Show selected content
+        const targetId = button.getAttribute('onclick').match(/'(.+)'/)[1];
+        document.getElementById(targetId).style.display = 'block';
+        button.classList.add('active');
+      });
+    });
   }
 
   // Ensure home content is displayed on page load (no fetch required)
@@ -63,19 +83,10 @@ document.addEventListener('DOMContentLoaded', function () {
 // Scroll-to-top button logic
 const scrollTopButton = document.getElementById('scrollTopButton');
 
-// Show button when scrolling down 20px
 window.onscroll = function () {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    scrollTopButton.style.display = 'block';
-  } else {
-    scrollTopButton.style.display = 'none';
-  }
+  scrollTopButton.style.display = (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) ? 'block' : 'none';
 };
 
-// Scroll to top when button is clicked
 scrollTopButton.onclick = function () {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth', // Smooth scrolling
-  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 };
