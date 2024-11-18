@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Function to fetch and display tab content
     function fetchContent(tabName) {
         contentArea.innerHTML = `<p>Loading content...</p>`;
-        const fileName = `${tabName}.html`; // Map tab to file name
+        const fileName = `${tabName}.html`;
 
         fetch(fileName)
             .then(response => {
@@ -39,6 +39,13 @@ document.addEventListener('DOMContentLoaded', function () {
             })
             .then(content => {
                 contentArea.innerHTML = content;
+
+                // Add or remove the background class dynamically
+                if (tabName === 'travel') {
+                    document.body.classList.add('travel-background');
+                } else {
+                    document.body.classList.remove('travel-background');
+                }
             })
             .catch(error => {
                 console.error(error);
@@ -49,6 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Function to reset home content
     function resetHomeContent() {
         contentArea.innerHTML = homeContentHTML;
+        document.body.classList.remove('travel-background'); // Ensure travel background is removed
     }
 
     // Load the home content on page load
