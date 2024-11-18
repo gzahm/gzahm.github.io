@@ -43,12 +43,16 @@ document.addEventListener('DOMContentLoaded', function () {
       });
   }
 
-  // Function to reset home content (if needed)
+  // Function to reset home content and update the active tab
   function resetHomeContent() {
     const homeContent = document.querySelector('#home-content');
     if (homeContent) {
-      // Reset the original static home page content
+      // Restore the original static home page content
       contentArea.innerHTML = homeContent.outerHTML;
+
+      // Set the Home tab as active
+      tabs.forEach(t => t.classList.remove('active'));
+      document.querySelector('.tab-links a[data-tab="home"]').classList.add('active');
     }
   }
 
