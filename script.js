@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const tabs = document.querySelectorAll('.tab-links a');
-    const dynamicContent = document.getElementById('dynamic-content'); // Container for dynamic content
+    const dynamicContent = document.getElementById('dynamic-content');
 
     // Cache the original home content
     const homeContentHTML = document.getElementById('home-content').outerHTML;
