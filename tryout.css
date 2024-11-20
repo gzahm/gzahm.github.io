@@ -1,95 +1,70 @@
-/* Reset styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #005f73, #0a9396);
+    color: white;
+    text-align: center;
+    padding: 3em 2em;
 }
 
-body {
-    background: none; /* Default background */
-    color: black;
+.hero-content h1 {
+    font-size: 3em;
+    margin-bottom: 0.5em;
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    max-width: 600px;
+    margin: 0 auto;
     line-height: 1.6;
 }
 
-body.travel-background {
-    background-image: url('https://github.com/user-attachments/assets/e94f0987-a0cb-46c1-bd84-3c64316db5e0');
-    background-size: cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    color: white;
+/* Tattoo Tabs */
+.tab-links .tattoo {
+    position: relative;
+    text-transform: uppercase;
+    font-size: 1em;
+    padding: 0.5em 1em;
+    transition: all 0.3s ease-in-out;
 }
 
-/* Header and Navigation */
-header {
-    background-color: #005f73;
-    padding: 1em 2em;
-    position: fixed;
-    top: 0;
+.tab-links .tattoo:hover {
+    color: #0a9396;
+    transform: scale(1.1);
+}
+
+.tab-links .tattoo::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #0a9396;
+    left: 50%;
+    bottom: -5px;
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-50%);
+}
+
+.tab-links .tattoo:hover::after {
     width: 100%;
-    z-index: 1000;
 }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 1.5em;
-    color: white;
-    font-weight: bold;
-}
-
-.tab-links {
-    list-style: none;
-    display: flex;
-}
-
-.tab-links li {
-    margin-left: 1.5em;
-}
-
-.tab-links a {
+/* Unique Tattoos for Each Tab */
+.tattoo-home {
     color: #ffba08;
-    text-decoration: none;
-    font-weight: bold;
 }
 
-.tab-links a:hover {
-    color: #d4a373;
+.tattoo-food {
+    color: #ff6f61;
 }
 
-/* Content Wrapper */
-#content-area {
-    padding: 4em 2em;
-    margin-top: 80px;
-    text-align: center;
+.tattoo-travel {
+    color: #4caf50;
 }
 
-#content-area h1 {
-    font-size: 2.5em;
+.tattoo-interests {
+    color: #8a56ac;
 }
 
-#content-area p {
-    font-size: 1.2em;
-}
-
-/* Scroll to Top Button */
-#scrollTopButton {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #555;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    display: none;
-}
-
-#scrollTopButton:hover {
-    background-color: #333;
+.tattoo-mentoring {
+    color: #f39c12;
 }
