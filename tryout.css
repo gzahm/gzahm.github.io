@@ -53,31 +53,33 @@ header .tab-links a:hover {
     transform: translateY(-3px);
 }
 
-/* Hero Section */
+/* Hero Section (Homepage-Specific) */
 .hero {
-    background-color: #FF6700; /* Solid orange for hero section */
-    color: black; /* Black text for contrast */
+    background-color: #FFF4E6; /* Subtle light orange for a softer feel */
+    color: #333; /* Neutral text color */
     text-align: center;
-    padding: 4em 2em;
+    padding: 2em 1em; /* Reduced padding */
+    border-bottom: 2px solid #FF6700; /* Orange accent at the bottom */
 }
 
 .hero-content {
-    max-width: 800px;
+    max-width: 700px; /* Reduced width for better focus */
     margin: auto;
 }
 
 .hero-content h1 {
-    font-size: 3rem;
+    font-size: 2.5rem; /* Reduced font size for formality */
     margin-bottom: 0.5em;
-    color: black; /* Black text for emphasis */
+    font-weight: 600; /* Slightly lighter font weight for a polished look */
+    color: #FF6700; /* Bright orange for the title */
 }
 
 .hero-content p {
-    font-size: 1.2em;
-    line-height: 1.8;
-    color: white; /* Contrasting white for hero text */
+    font-size: 1rem; /* Smaller font for subtlety */
+    line-height: 1.5;
+    color: #555; /* Softer gray for supporting text */
+    margin-top: 0.5em;
 }
-
 /* Content Area */
 #content-area {
     max-width: 1200px;
