@@ -9,10 +9,17 @@
 /* General Body Layout */
 body {
     line-height: 1.6;
+    color: white;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9; /* Default neutral background */
+}
+
+/* Background for Travel Page Only */
+body.travel-page {
     background-image: url('https://github.com/user-attachments/assets/e94f0987-a0cb-46c1-bd84-3c64316db5e0');
     background-size: cover;
     background-attachment: fixed;
-    color: white;
 }
 
 /* Header Section */
@@ -55,8 +62,8 @@ header .tab-links a:hover {
     transform: translateY(-3px);
 }
 
-/* Hero Section */
-.hero {
+/* Hero Section for Home Page Only */
+body.home-page .hero {
     background-color: #FFF4E6;
     color: #333;
     text-align: center;
@@ -92,6 +99,12 @@ header .tab-links a:hover {
     border-radius: 10px;
 }
 
+body.home-page #content-area {
+    background-color: white;
+    color: #333;
+}
+
+/* Section Headings */
 #content-area h1, .content h2 {
     color: white;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
@@ -111,7 +124,7 @@ header .tab-links a:hover {
     border-radius: 5px;
 }
 
-/* Banner Header */
+/* Banner Header for Pages with Hero Image */
 .banner-header {
     background-image: url('https://github.com/user-attachments/assets/c762f6bf-465c-4e44-ab6d-a1bf1bb1e1cb');
     background-size: cover;
