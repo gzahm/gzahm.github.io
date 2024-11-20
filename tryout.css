@@ -1,9 +1,64 @@
-/* Hero Section */
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* General Layout */
+body {
+    background: none;
+    color: black;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #005f73;
+    color: white;
+    padding: 1em;
+    text-align: center;
+}
+
+/* Global Tabs */
+.tab-links {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin-top: 20px;
+    padding: 0;
+}
+
+.tab-links li {
+    margin: 0 10px;
+}
+
+.tab-links a {
+    text-decoration: none;
+    color: white;
+    background-color: #0a9396;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.tab-links a:hover {
+    background-color: #94d2bd;
+    transform: translateY(-3px);
+}
+
+/* Hero Section (Homepage-Specific) */
 .hero {
     background: linear-gradient(135deg, #005f73, #0a9396);
     color: white;
     text-align: center;
-    padding: 3em 2em;
+    padding: 4em 2em;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: auto;
 }
 
 .hero-content h1 {
@@ -13,58 +68,70 @@
 
 .hero-content p {
     font-size: 1.2em;
-    max-width: 600px;
-    margin: 0 auto;
-    line-height: 1.6;
+    line-height: 1.8;
 }
 
-/* Tattoo Tabs */
-.tab-links .tattoo {
-    position: relative;
-    text-transform: uppercase;
-    font-size: 1em;
-    padding: 0.5em 1em;
-    transition: all 0.3s ease-in-out;
+/* Content Areas */
+#content-area {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.tab-links .tattoo:hover {
-    color: #0a9396;
-    transform: scale(1.1);
+#content-area .content {
+    text-align: left;
+    margin-bottom: 2em;
 }
 
-.tab-links .tattoo::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    background: #0a9396;
-    left: 50%;
-    bottom: -5px;
-    transition: all 0.3s ease-in-out;
-    transform: translateX(-50%);
+#content-area h2 {
+    color: #005f73;
+    border-bottom: 2px solid #0a9396;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
 }
 
-.tab-links .tattoo:hover::after {
-    width: 100%;
+/* Media Frames */
+.media-frame {
+    margin: 20px auto;
+    text-align: center;
 }
 
-/* Unique Tattoos for Each Tab */
-.tattoo-home {
-    color: #ffba08;
+/* Scroll-to-Top Button */
+#scrollTopButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #005f73;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
 }
 
-.tattoo-food {
-    color: #ff6f61;
+#scrollTopButton:hover {
+    background-color: #0a9396;
 }
 
-.tattoo-travel {
-    color: #4caf50;
-}
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2em;
+    }
 
-.tattoo-interests {
-    color: #8a56ac;
-}
+    .tab-links {
+        flex-wrap: wrap;
+    }
 
-.tattoo-mentoring {
-    color: #f39c12;
+    .tab-links a {
+        margin-bottom: 10px;
+    }
+
+    #content-area {
+        padding: 15px;
+    }
 }
