@@ -15,209 +15,13 @@ body {
     background-color: #f9f9f9; /* Default neutral background */
 }
 
-/* Background for Travel Page Only */
+/* Page-Specific Backgrounds */
 body.travel-page {
     background-image: url('https://github.com/user-attachments/assets/e94f0987-a0cb-46c1-bd84-3c64316db5e0');
     background-size: cover;
     background-attachment: fixed;
 }
 
-/* Header Section */
-header {
-    background-color: #FF6700;
-    color: white;
-    padding: 20px 0;
-}
-
-header .tab-links {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-    list-style: none;
-}
-
-header .tab-links li {
-    margin: 0 10px;
-}
-
-header .tab-links a {
-    text-decoration: none;
-    color: white;
-    background-color: #FF6700;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-header .tab-links a:hover {
-    background-color: #005f73;
-    transform: translateY(-3px);
-}
-
-/* Hero Section for Home Page Only */
-body.home-page .hero {
-    background-color: #FFF4E6;
-    color: #333;
-    text-align: center;
-    padding: 2em 1em;
-    border-bottom: 2px solid #FF6700;
-}
-
-.hero-content {
-    max-width: 700px;
-    margin: auto;
-}
-
-.hero-content h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5em;
-    font-weight: 600;
-    color: #FF6700;
-}
-
-.hero-content p {
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #555;
-    margin-top: 0.5em;
-}
-
-/* Content Area */
-#content-area, .content-wrapper {
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.85);
-    border-radius: 10px;
-}
-
-body.home-page #content-area {
-    background-color: white;
-    color: #333;
-}
-
-/* Section Headings */
-#content-area h1, .content h2 {
-    color: white;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 5px 10px;
-    border-left: 5px solid #f5c518;
-    margin-top: 20px;
-    border-radius: 5px;
-}
-
-/* Styling for body text */
-.content p {
-    margin-top: 10px;
-    line-height: 1.6;
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 10px;
-    border-radius: 5px;
-}
-
-/* Banner Header for Pages with Hero Image */
-.banner-header {
-    background-image: url('https://github.com/user-attachments/assets/c762f6bf-465c-4e44-ab6d-a1bf1bb1e1cb');
-    background-size: cover;
-    background-position: center;
-    height: 300px;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: relative;
-    top: 0;
-}
-
-.header-content h1 {
-    font-size: 2.5em;
-    font-weight: bold;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
-    margin: 0;
-}
-
-/* Media Frames */
-.media-frame {
-    padding: 10px;
-    background-color: #D2B48C;
-    border: 5px solid #8B4513;
-    border-radius: 5px;
-    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3), 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-.kodak-roll {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.kodak-roll img {
-    width: 100px;
-    height: auto;
-    border-radius: 5px;
-}
-
-/* Scroll-to-Top Button */
-#scrollTopButton {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #FF6700;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    display: none;
-    transition: background-color 0.3s ease;
-}
-
-#scrollTopButton:hover {
-    background-color: #005f73;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .hero-content h1 {
-        font-size: 2rem;
-    }
-
-    .content h2 {
-        font-size: 1.5em;
-    }
-
-    .content-wrapper {
-        padding: 15px;
-    }
-
-    .kodak-roll img {
-        width: 80px;
-    }
-}
-
-@media (max-width: 480px) {
-    .header-content h1 {
-        font-size: 1.8em;
-    }
-
-    .content h2 {
-        font-size: 1.2em;
-    }
-
-    .content-wrapper {
-        padding: 10px;
-    }
-
-    .kodak-roll img {
-        width: 60px;
-    }
-}
-/* Food Page Hero */
 body.food-page .hero {
     background-color: #FFE4C4; /* Light beige for a warm food vibe */
     color: #333;
@@ -226,58 +30,6 @@ body.food-page .hero {
     border-bottom: 2px solid #FF6700;
 }
 
-/* Recipe Categories Navigation */
-.recipe-categories ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    list-style: none;
-    padding: 0;
-    margin: 20px 0;
-}
-
-.recipe-categories li {
-    margin: 10px;
-}
-
-.recipe-categories a {
-    text-decoration: none;
-    color: #FF6700;
-    font-weight: bold;
-    padding: 10px 15px;
-    border: 2px solid #FF6700;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-}
-
-.recipe-categories a:hover {
-    background-color: #FF6700;
-    color: white;
-}
-
-/* Section Styling */
-.content-wrapper section {
-    margin: 40px auto;
-    max-width: 800px;
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.content-wrapper h2 {
-    font-size: 2em;
-    margin-bottom: 10px;
-    color: #333;
-    border-bottom: 2px solid #FF6700;
-    padding-bottom: 5px;
-}
-
-.content-wrapper p {
-    font-size: 1em;
-    line-height: 1.6;
-    color: #555;
-}
 /* Logo Styles */
 .logo-container {
     position: absolute;
@@ -345,4 +97,80 @@ body.food-page .hero {
 .food-nav ul li a:hover {
     background-color: #FF6700;
     color: white;
+}
+
+/* Hero Section */
+.hero {
+    color: #333;
+    text-align: center;
+    padding: 2em 1em;
+    border-bottom: 2px solid #FF6700;
+}
+
+.hero-content {
+    max-width: 700px;
+    margin: auto;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5em;
+    font-weight: 600;
+    color: #FF6700;
+}
+
+.hero-content p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #555;
+    margin-top: 0.5em;
+}
+
+/* Content Area */
+#content-area, .content-wrapper {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 10px;
+}
+
+body.home-page #content-area {
+    background-color: white;
+    color: #333;
+}
+
+/* Section Headings */
+#content-area h1, .content h2 {
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 5px 10px;
+    border-left: 5px solid #f5c518;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+/* Section Styling */
+.content-wrapper section {
+    margin: 40px auto;
+    max-width: 800px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.content-wrapper h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #333;
+    border-bottom: 2px solid #FF6700;
+    padding-bottom: 5px;
+}
+
+.content-wrapper p {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #555;
 }
