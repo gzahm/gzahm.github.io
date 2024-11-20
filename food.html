@@ -6,14 +6,14 @@
     <title>Food - Recipes and More</title>
     <link rel="stylesheet" href="tryout.css">
 </head>
-<body class="food-page">
-    <!-- Header -->
+<body class="food-page"> <!-- Food page-specific class -->
+    <!-- Header with Global Navigation -->
     <header>
-        <nav>
-            <div class="logo">
-                <span>ZAHM Food</span>
-            </div>
-            <ul class="tab-links">
+        <div class="logo-container">
+            <img src="https://github.com/user-attachments/assets/d1215c1a-ee13-4381-90bf-3175dd2eb51a" alt="ZAHM Logo" class="logo">
+        </div>
+        <nav class="global-nav">
+            <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="food.html" class="active">Food</a></li>
                 <li><a href="travel.html">Travel</a></li>
@@ -31,22 +31,22 @@
         </div>
     </section>
 
-    <!-- Content Section -->
-    <main class="content-wrapper">
-        <!-- Navigation for Recipe Categories -->
-        <nav class="recipe-categories">
-            <ul>
-                <li><a href="#seasonal">Seasonal Recipes</a></li>
-                <li><a href="#international">International Recipes</a></li>
-                <li><a href="#meal-prepping">Meal Prepping</a></li>
-                <li><a href="#keto">Keto Recipes</a></li>
-                <li><a href="#bulking">Bulking Recipes</a></li>
-                <li><a href="#budget">Budget Recipes</a></li>
-                <li><a href="#cheese">Cheese Lovers</a></li>
-            </ul>
-        </nav>
+    <!-- Sub-Navigation for Food-Specific Tabs -->
+    <nav class="food-nav">
+        <ul>
+            <li><a href="#seasonal">Seasonal Recipes</a></li>
+            <li><a href="#international">International Recipes</a></li>
+            <li><a href="#meal-prepping">Meal Prepping</a></li>
+            <li><a href="#keto">Keto Recipes</a></li>
+            <li><a href="#bulking">Bulking Recipes</a></li>
+            <li><a href="#budget">Budget Recipes</a></li>
+            <li><a href="#cheese">Cheese Lovers</a></li>
+        </ul>
+    </nav>
 
-        <!-- Placeholder Sections for Categories -->
+    <!-- Main Content Area -->
+    <main class="content-wrapper">
+        <!-- Placeholder Sections -->
         <section id="seasonal">
             <h2>Seasonal Recipes</h2>
             <p>Celebrate the flavors of each season with these recipes!</p>
