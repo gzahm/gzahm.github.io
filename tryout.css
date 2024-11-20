@@ -29,11 +29,17 @@ header {
     padding: 20px 0;
 }
 
+/* Logo Styles */
+header .logo-container {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10; /* Ensure the logo stays above other content */
+}
+
 header .logo {
-    text-align: center;
-    font-size: 2rem;
-    font-weight: bold;
-    color: black;
+    width: 150px;  /* Adjust logo size as necessary */
+    height: auto;
 }
 
 header .tab-links {
