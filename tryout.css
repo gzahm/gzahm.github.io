@@ -24,35 +24,86 @@ body.travel-page {
 
 /* Header Section */
 header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background-color: #FF6700;
     color: white;
-    padding: 20px 0;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-header .tab-links {
+.logo-container {
+    flex: 1;
+}
+
+.logo {
+    width: 80px;
+    height: auto;
+}
+
+.header-title {
+    flex: 2;
+    text-align: center;
+    font-family: 'Dancing Script', cursive; /* Use calligraphy-style font */
+    font-size: 1.8rem;
+    color: white;
+    font-weight: bold;
+}
+
+header nav {
+    flex: 1;
     display: flex;
-    justify-content: center;
-    margin-top: 10px;
+    justify-content: flex-end;
+}
+
+.tab-links {
+    display: flex;
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-header .tab-links li {
-    margin: 0 10px;
+.tab-links li {
+    margin-left: 15px;
 }
 
-header .tab-links a {
+.tab-links a {
     text-decoration: none;
     color: white;
-    background-color: #FF6700;
-    padding: 10px 20px;
+    background-color: #FF8C42;
+    padding: 10px 15px;
     border-radius: 5px;
     font-weight: bold;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-header .tab-links a:hover {
+.tab-links a:hover {
     background-color: #005f73;
-    transform: translateY(-3px);
+    transform: translateY(-2px);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    header {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .header-title {
+        margin-top: 10px;
+        font-size: 1.5rem;
+    }
+
+    nav {
+        justify-content: center;
+        flex-basis: 100%;
+    }
+
+    .tab-links a {
+        padding: 8px 10px;
+        font-size: 0.9rem;
+    }
 }
 
 /* Hero Section for Home Page Only */
