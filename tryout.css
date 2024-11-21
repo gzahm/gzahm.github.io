@@ -167,10 +167,9 @@ body.home-page #content-area {
     padding: 10px;
     border-radius: 5px;
 }
-
-/* Banner Header for Pages with Hero Image */
+****
+/* Base Banner Header Styling */
 .banner-header {
-    background-image: url('https://github.com/user-attachments/assets/c762f6bf-465c-4e44-ab6d-a1bf1bb1e1cb');
     background-size: cover;
     background-position: center;
     height: 300px;
@@ -182,6 +181,34 @@ body.home-page #content-area {
     position: relative;
     top: 0;
 }
+
+/* Default Banner Header (Home Page) */
+body.home-page .banner-header {
+    background-image: url('https://example.com/home-banner.jpg'); /* Replace with home page image */
+}
+
+/* Food Page Banner Header */
+body.food-page .banner-header {
+    background-image: url('https://example.com/food-banner.jpg'); /* Replace with food page image */
+}
+
+/* Travel Page Banner Header */
+body.travel-page .banner-header {
+    background-image: url('https://github.com/user-attachments/assets/c762f6bf-465c-4e44-ab6d-a1bf1bb1e1cb'); /* Replace with travel page image */
+}
+
+/* Add more for other pages */
+body.interests-page .banner-header {
+    background-image: url('https://example.com/interests-banner.jpg'); /* Replace with interests page image */
+}
+
+body.mentoring-page .banner-header {
+    background-image: url('https://example.com/mentoring-banner.jpg'); /* Replace with mentoring page image */
+}
+
+
+
+****
 
 .header-content h1 {
     font-size: 2.5em;
