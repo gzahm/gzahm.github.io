@@ -189,12 +189,12 @@ body.home-page .banner-header {
 
 /* Food Page Banner Header */
 body.food-page .banner-header {
-    background-image: url('https://example.com/food-banner.jpg'); /* Replace with food page image */
+    background-image: url('https://via.placeholder.com/1500'); /* Replace with food page image */
 }
 
 /* Travel Page Banner Header */
 body.travel-page .banner-header {
-    background-image: url('https://github.com/user-attachments/assets/c762f6bf-465c-4e44-ab6d-a1bf1bb1e1cb'); /* Replace with travel page image */
+    background-image: url('https://via.placeholder.com/1500'); /* Replace with travel page image */
 }
 
 /* Add more for other pages */
