@@ -12,10 +12,9 @@ body {
     color: white;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9; /* Default neutral background */
+    background-color: #f9f9f9;
 }
 
-/* Background for Travel Page Only */
 body.travel-page {
     background-image: url('https://github.com/user-attachments/assets/e94f0987-a0cb-46c1-bd84-3c64316db5e0');
     background-size: cover;
@@ -24,89 +23,72 @@ body.travel-page {
 
 /* Header Section */
 header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     background-color: #FF6700;
     color: white;
-    padding: 10px 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
 }
 
-.logo-container {
-    flex: 1;
-}
-
-.logo {
-    width: 80px;
+header .logo-container img {
+    width: 120px;
     height: auto;
 }
 
-.header-title {
-    flex: 2;
-    text-align: center;
-    font-family: 'Dancing Script', cursive; /* Use calligraphy-style font */
-    font-size: 1.8rem;
+header .header-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
     color: white;
-    font-weight: bold;
 }
 
-header nav {
-    flex: 1;
+header .tab-links {
     display: flex;
     justify-content: flex-end;
-}
-
-.tab-links {
-    display: flex;
     list-style: none;
     margin: 0;
-    padding: 0;
 }
 
-.tab-links li {
-    margin-left: 15px;
+header .tab-links li {
+    margin: 0 10px;
 }
 
-.tab-links a {
+header .tab-links a {
     text-decoration: none;
     color: white;
-    background-color: #FF8C42;
-    padding: 10px 15px;
+    background-color: #FF6700;
+    padding: 10px 20px;
     border-radius: 5px;
     font-weight: bold;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.tab-links a:hover {
+header .tab-links a:hover {
     background-color: #005f73;
-    transform: translateY(-2px);
+    transform: translateY(-3px);
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    header {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .header-title {
-        margin-top: 10px;
-        font-size: 1.5rem;
-    }
-
-    nav {
-        justify-content: center;
-        flex-basis: 100%;
-    }
-
-    .tab-links a {
-        padding: 8px 10px;
-        font-size: 0.9rem;
-    }
+header .tab-links .active {
+    background-color: #005f73;
 }
 
-/* Hero Section for Home Page Only */
+/* Banner Header */
+.banner-header {
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+body.travel-page .banner-header {
+    background-image: url('https://github.com/user-attachments/assets/c762f6bf-465c-4e44-ab6d-a1bf1bb1e1cb');
+}
+
+/* Hero Section for Home Page */
 body.home-page .hero {
     background-color: #FFF4E6;
     color: #333;
@@ -134,7 +116,7 @@ body.home-page .hero {
     margin-top: 0.5em;
 }
 
-/* Content Area */
+/* Main Content Area */
 #content-area, .content-wrapper {
     max-width: 800px;
     margin: auto;
@@ -149,7 +131,7 @@ body.home-page #content-area {
 }
 
 /* Section Headings */
-#content-area h1, .content h2 {
+.content h2, #content-area h1 {
     color: white;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
     background-color: rgba(255, 255, 255, 0.1);
@@ -159,80 +141,14 @@ body.home-page #content-area {
     border-radius: 5px;
 }
 
-/* Styling for body text */
+/* Paragraph Styling */
 .content p {
     margin-top: 10px;
     line-height: 1.6;
     background-color: rgba(0, 0, 0, 0.6);
     padding: 10px;
     border-radius: 5px;
-}
-****
-/* Base Banner Header Styling */
-.banner-header {
-    background-size: cover;
-    background-position: center;
-    height: 300px;
     color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: relative;
-    top: 0;
-}
-
-/* Default Banner Header (Home Page) */
-body.home-page .banner-header {
-    background-image: url('https://example.com/home-banner.jpg'); /* Replace with home page image */
-}
-
-/* Food Page Banner Header */
-body.food-page .banner-header {
-    background-image: url('https://via.placeholder.com/1500'); /* Replace with food page image */
-}
-
-/* Travel Page Banner Header */
-body.travel-page .banner-header {
-    background-image: url('https://github.com/user-attachments/assets/c762f6bf-465c-4e44-ab6d-a1bf1bb1e1cb');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 300px;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: relative;
-    top: 0;
-}
-
-body.travel-page .header-content h1 {
-    font-size: 2.5em;
-    font-weight: bold;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
-    margin: 0;
-}
-
-/* Add more for other pages */
-body.interests-page .banner-header {
-    background-image: url('https://example.com/interests-banner.jpg'); /* Replace with interests page image */
-}
-
-body.mentoring-page .banner-header {
-    background-image: url('https://example.com/mentoring-banner.jpg'); /* Replace with mentoring page image */
-}
-
-
-
-****
-
-.header-content h1 {
-    font-size: 2.5em;
-    font-weight: bold;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
-    margin: 0;
 }
 
 /* Media Frames */
@@ -277,6 +193,36 @@ body.mentoring-page .banner-header {
     background-color: #005f73;
 }
 
+/* Recipe Navigation */
+.food-nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    background-color: #FFE4C4;
+    padding: 10px 0;
+    margin: 20px 0;
+    border-bottom: 2px solid #FF6700;
+}
+
+.food-nav ul li {
+    margin: 0 10px;
+}
+
+.food-nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 8px 12px;
+    border: 2px solid #FF6700;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.food-nav ul li a:hover {
+    background-color: #FF6700;
+    color: white;
+}
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .hero-content h1 {
@@ -313,132 +259,3 @@ body.mentoring-page .banner-header {
         width: 60px;
     }
 }
-
-/* Food Page Hero */
-body.food-page .hero {
-    background-color: #FFE4C4; /* Light beige for a warm food vibe */
-    color: #333;
-    text-align: center;
-    padding: 2em 1em;
-    border-bottom: 2px solid #FF6700;
-}
-
-/* Recipe Categories Navigation */
-.recipe-categories ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    list-style: none;
-    padding: 0;
-    margin: 20px 0;
-}
-
-.recipe-categories li {
-    margin: 10px;
-}
-
-.recipe-categories a {
-    text-decoration: none;
-    color: #FF6700;
-    font-weight: bold;
-    padding: 10px 15px;
-    border: 2px solid #FF6700;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-}
-
-.recipe-categories a:hover {
-    background-color: #FF6700;
-    color: white;
-}
-
-/* Section Styling */
-.content-wrapper section {
-    margin: 40px auto;
-    max-width: 800px;
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.content-wrapper h2 {
-    font-size: 2em;
-    margin-bottom: 10px;
-    color: #333;
-    border-bottom: 2px solid #FF6700;
-    padding-bottom: 5px;
-}
-
-.content-wrapper p {
-    font-size: 1em;
-    line-height: 1.6;
-    color: #555;
-}
-
-/* Logo Styles */
-.logo-container {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-}
-
-.logo {
-    width: 120px;
-    height: auto;
-}
-
-/* Global Navigation */
-.global-nav ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    background-color: #FF6700;
-    padding: 10px 0;
-    margin: 0;
-}
-
-.global-nav ul li {
-    margin: 0 15px;
-}
-
-.global-nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.global-nav ul li a:hover {
-    background-color: #005f73;
-}
-
-/* Food-Specific Navigation */
-.food-nav ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    background-color: #FFE4C4; /* Light beige */
-    padding: 10px 0;
-    margin: 20px 0;
-    border-bottom: 2px solid #FF6700;
-}
-
-.food-nav ul li {
-    margin: 0 10px;
-}
-
-.food-nav ul li a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    padding: 8px 12px;
-    border: 2px solid #FF6700;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-}
-
-.food-nav ul li a:hover {
-    background-color: #
