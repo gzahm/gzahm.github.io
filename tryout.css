@@ -90,7 +90,9 @@ body.travel-page .banner-header {
 body.food-page .banner-header {
     background-image: url('https://github.com/user-attachments/assets/ddf9dfca-7689-41b4-bcc7-a105e110c197');
 }
-
+body.mentoring-page .banner-header {
+    background-image: url('https://github.com/user-attachments/assets/ddf9dfca-7689-41b4-bcc7-a105e110c197');
+}
 /* Main Content Area */
 #content-area, .content-wrapper {
     max-width: 800px;
