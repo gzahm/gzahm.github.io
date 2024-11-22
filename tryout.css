@@ -93,6 +93,9 @@ body.food-page .banner-header {
 body.mentoring-page .banner-header {
     background-image: url('https://github.com/user-attachments/assets/aa9be50c-3c7f-4b9a-b75d-c60d78117b22');
 }
+body.interests-page .banner-header {
+    background-image: url('https://github.com/user-attachments/assets/aa9be50c-3c7f-4b9a-b75d-c60d78117b22');
+}
 /* Main Content Area */
 #content-area, .content-wrapper {
     max-width: 800px;
