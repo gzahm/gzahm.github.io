@@ -88,33 +88,6 @@ body.travel-page .banner-header {
     background-image: url('https://github.com/user-attachments/assets/c762f6bf-465c-4e44-ab6d-a1bf1bb1e1cb');
 }
 
-/* Hero Section for Home Page */
-body.home-page .hero {
-    background-color: #FFF4E6;
-    color: #333;
-    text-align: center;
-    padding: 2em 1em;
-    border-bottom: 2px solid #FF6700;
-}
-
-.hero-content {
-    max-width: 700px;
-    margin: auto;
-}
-
-.hero-content h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5em;
-    font-weight: 600;
-    color: #FF6700;
-}
-
-.hero-content p {
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #555;
-    margin-top: 0.5em;
-}
 
 /* Main Content Area */
 #content-area, .content-wrapper {
