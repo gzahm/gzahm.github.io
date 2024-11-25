@@ -107,15 +107,3 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
-
-    // Load the home content on page load
-    resetHomeContent();
-});
-// Select the hamburger and navigation elements
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.global-nav ul');
-
-// Toggle the 'show' class on click
-hamburger.addEventListener('click', () => {
-    navMenu.classList.toggle('show');
-});
