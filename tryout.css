@@ -239,3 +239,65 @@ body.home-page #content-area {
         width: 60px;
     }
 }
+/* Hamburger Button */
+.hamburger {
+    display: none; /* Hidden by default */
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 100;
+}
+
+/* Navigation Links */
+.global-nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #FF6700;
+    flex-direction: row;
+}
+
+.global-nav ul li {
+    margin: 0 10px;
+}
+
+.global-nav ul a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.global-nav ul a:hover {
+    background-color: #005f73;
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+    .global-nav ul {
+        display: none; /* Hide links by default */
+        flex-direction: column; /* Stack vertically */
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #FF6700;
+        width: 100%;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .global-nav ul.show {
+        display: flex; /* Show when toggled */
+    }
+
+    .hamburger {
+        display: block; /* Show hamburger */
+    }
+}
