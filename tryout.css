@@ -247,30 +247,51 @@ body.home-page #content-area {
     top: 15px;
     right: 15px;
     z-index: 100;
-    width: 30px;
-    height: 25px; /* Adjust to fit three lines */
+    width: 35px; /* Slightly larger for better visibility */
+    height: 30px; /* Adjust to fit three lines with spacing */
     flex-direction: column;
-    justify-content: space-between; /* Space between lines */
+    justify-content: space-between;
+    align-items: center; /* Center the lines horizontally */
+    background-color: rgba(0, 0, 0, 0.1); /* Transparent background for hinting interactivity */
+    border-radius: 5px; /* Rounded edges for a softer look */
+    padding: 5px;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
 }
 
+.hamburger:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Highlight on hover */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow to make it pop */
+}
+
+/* Lines in the Hamburger */
 .hamburger span {
     display: block;
     background-color: white; /* Line color */
     height: 4px; /* Line thickness */
-    width: 100%; /* Full width */
-    border-radius: 2px; /* Optional: rounded edges */
+    width: 100%; /* Full width of the button */
+    border-radius: 2px; /* Rounded edges */
     transition: all 0.3s ease; /* Smooth transitions for animations */
 }
 
-/* Animation when active */
+/* Animation for Active State */
 .hamburger.active span:nth-child(1) {
-    transform: translateY(9px) rotate(45deg); /* Rotate first line */
+    transform: translateY(8px) rotate(45deg); /* Rotate first line into X */
 }
 .hamburger.active span:nth-child(2) {
     opacity: 0; /* Hide middle line */
 }
 .hamburger.active span:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg); /* Rotate last line */
+    transform: translateY(-8px) rotate(-45deg); /* Rotate last line into X */
+}
+
+/* Add subtle bounce effect */
+.hamburger:hover span:nth-child(1),
+.hamburger:hover span:nth-child(3) {
+    transform: scaleX(1.1); /* Slightly stretch the lines on hover */
+}
+
+.hamburger:hover span:nth-child(2) {
+    transform: scaleX(0.9); /* Slightly shrink the middle line */
 }
 
 /* Navigation Links */
