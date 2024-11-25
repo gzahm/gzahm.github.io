@@ -241,16 +241,36 @@ body.home-page #content-area {
 }
 /* Hamburger Button */
 .hamburger {
-    display: none; /* Hidden by default */
-    font-size: 24px;
-    background: none;
-    border: none;
-    color: white;
+    display: none; /* Hidden by default (desktop) */
     cursor: pointer;
     position: absolute;
     top: 15px;
     right: 15px;
     z-index: 100;
+    width: 30px;
+    height: 25px; /* Adjust to fit three lines */
+    flex-direction: column;
+    justify-content: space-between; /* Space between lines */
+}
+
+.hamburger span {
+    display: block;
+    background-color: white; /* Line color */
+    height: 4px; /* Line thickness */
+    width: 100%; /* Full width */
+    border-radius: 2px; /* Optional: rounded edges */
+    transition: all 0.3s ease; /* Smooth transitions for animations */
+}
+
+/* Animation when active */
+.hamburger.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg); /* Rotate first line */
+}
+.hamburger.active span:nth-child(2) {
+    opacity: 0; /* Hide middle line */
+}
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg); /* Rotate last line */
 }
 
 /* Navigation Links */
@@ -298,6 +318,6 @@ body.home-page #content-area {
     }
 
     .hamburger {
-        display: block; /* Show hamburger */
+        display: flex; /* Show hamburger */
     }
 }
