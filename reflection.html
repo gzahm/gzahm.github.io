@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal & Reflection</title>
+    <link rel="stylesheet" href="tryout.css">
+</head>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Journal & Reflection</h1>
+            <p>Record your journey, reflect on your progress, and hold yourself accountable.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="content-wrapper">
+        <section id="journal-section">
+            <h2>Today's Reflection</h2>
+            <form id="journal-form">
+                <label for="what-happened">What Happened Today:</label><br>
+                <textarea id="what-happened" name="what-happened" rows="4" placeholder="Describe today's events..."></textarea><br>
+
+                <label for="feelings">How Did I Feel:</label><br>
+                <textarea id="feelings" name="feelings" rows="4" placeholder="Reflect on your emotions..."></textarea><br>
+
+                <label for="lessons">What Did I Learn:</label><br>
+                <textarea id="lessons" name="lessons" rows="4" placeholder="Note key lessons or insights..."></textarea><br>
+
+                <label for="accountability">Accountability Check-In:</label><br>
+                <textarea id="accountability" name="accountability" rows="4" placeholder="Evaluate how you're aligning with your goals..."></textarea><br>
+
+                <button type="submit">Save Reflection</button>
+            </form>
+        </section>
+
+        <section id="accountability-section">
+            <h2>Accountability Overview</h2>
+            <p>Track your progress and revisit previous reflections to see your growth over time.</p>
+            <ul id="past-reflections">
+                <!-- Placeholder for dynamically loaded past reflections -->
+                <li>No past reflections yet. Start journaling today!</li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Zahm's Corner. All rights reserved.</p>
+    </footer>
