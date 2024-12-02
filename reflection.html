@@ -50,3 +50,48 @@
     <footer>
         <p>&copy; 2024 Zahm's Corner. All rights reserved.</p>
     </footer>
+    <!-- JavaScript -->
+    <script>
+        document.getElementById('journal-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Gather input data
+            const whatHappened = document.getElementById('what-happened').value;
+            const feelings = document.getElementById('feelings').value;
+            const lessons = document.getElementById('lessons').value;
+            const accountability = document.getElementById('accountability').value;
+
+            // Save data locally (or to a server if desired)
+            const reflection = {
+                date: new Date().toLocaleDateString(),
+                whatHappened,
+                feelings,
+                lessons,
+                accountability,
+            };
+
+            let reflections = JSON.parse(localStorage.getItem('reflections')) || [];
+            reflections.push(reflection);
+            localStorage.setItem('reflections', JSON.stringify(reflections));
+
+            // Display in accountability section
+            const list = document.getElementById('past-reflections');
+            const listItem = document.createElement('li');
+            listItem.textContent = `Reflection for ${reflection.date}: ${reflection.whatHappened}`;
+            list.prepend(listItem);
+
+            // Clear form
+            this.reset();
+        });
+
+        // Load past reflections
+        const reflections = JSON.parse(localStorage.getItem('reflections')) || [];
+        const list = document.getElementById('past-reflections');
+        reflections.forEach((reflection) => {
+            const listItem = document.createElement('li');
+            listItem.textContent = `Reflection for ${reflection.date}: ${reflection.whatHappened}`;
+            list.prepend(listItem);
+        });
+    </script>
+</body>
+</html>
