@@ -76,7 +76,7 @@
         localStorage.setItem('reflections', JSON.stringify(reflections));
 
         // Send data to Google Apps Script
-        fetch("https://script.google.com/macros/s/AKfycbz22ZkHjJGaz6H4fED1AewUIyPm1W9-QfxG3Mccl0S7xyRbrruy50kpiKaHzvvCOUlJ6g/exec", {
+        fetch("https://script.google.com/macros/s/AKfycbzKyiS840oHwvGyjwE7aJq_0aq1CcjBkJDYn6x8lk_z/dev", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(reflection),
