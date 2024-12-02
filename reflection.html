@@ -51,47 +51,67 @@
         <p>&copy; 2024 Zahm's Corner. All rights reserved.</p>
     </footer>
     <!-- JavaScript -->
-    <script>
-        document.getElementById('journal-form').addEventListener('submit', function (e) {
-            e.preventDefault();
+<script>
+    document.getElementById('journal-form').addEventListener('submit', function (e) {
+        e.preventDefault();
 
-            // Gather input data
-            const whatHappened = document.getElementById('what-happened').value;
-            const feelings = document.getElementById('feelings').value;
-            const lessons = document.getElementById('lessons').value;
-            const accountability = document.getElementById('accountability').value;
+        // Gather input data
+        const whatHappened = document.getElementById('what-happened').value;
+        const feelings = document.getElementById('feelings').value;
+        const lessons = document.getElementById('lessons').value;
+        const accountability = document.getElementById('accountability').value;
 
-            // Save data locally (or to a server if desired)
-            const reflection = {
-                date: new Date().toLocaleDateString(),
-                whatHappened,
-                feelings,
-                lessons,
-                accountability,
-            };
+        // Prepare data to send to Google Apps Script
+        const reflection = {
+            date: new Date().toLocaleDateString(),
+            whatHappened,
+            feelings,
+            lessons,
+            accountability,
+        };
 
-            let reflections = JSON.parse(localStorage.getItem('reflections')) || [];
-            reflections.push(reflection);
-            localStorage.setItem('reflections', JSON.stringify(reflections));
+        // Save locally in case user wants to revisit
+        let reflections = JSON.parse(localStorage.getItem('reflections')) || [];
+        reflections.push(reflection);
+        localStorage.setItem('reflections', JSON.stringify(reflections));
 
-            // Display in accountability section
-            const list = document.getElementById('past-reflections');
-            const listItem = document.createElement('li');
-            listItem.textContent = `Reflection for ${reflection.date}: ${reflection.whatHappened}`;
-            list.prepend(listItem);
+        // Send data to Google Apps Script
+        fetch("https://script.google.com/macros/s/AKfycbz22ZkHjJGaz6H4fED1AewUIyPm1W9-QfxG3Mccl0S7xyRbrruy50kpiKaHzvvCOUlJ6g/exec", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(reflection),
+        })
+            .then((response) => {
+                if (response.ok) {
+                    alert("Reflection submitted successfully!");
+                } else {
+                    alert("Failed to submit reflection. Please try again.");
+                }
+            })
+            .catch((error) => {
+                console.error("Error submitting reflection:", error);
+                alert("An error occurred. Please try again.");
+            });
 
-            // Clear form
-            this.reset();
-        });
-
-        // Load past reflections
-        const reflections = JSON.parse(localStorage.getItem('reflections')) || [];
+        // Display in accountability section
         const list = document.getElementById('past-reflections');
-        reflections.forEach((reflection) => {
-            const listItem = document.createElement('li');
-            listItem.textContent = `Reflection for ${reflection.date}: ${reflection.whatHappened}`;
-            list.prepend(listItem);
-        });
-    </script>
+        const listItem = document.createElement('li');
+        listItem.textContent = `Reflection for ${reflection.date}: ${reflection.whatHappened}`;
+        list.prepend(listItem);
+
+        // Clear form
+        this.reset();
+    });
+
+    // Load past reflections
+    const reflections = JSON.parse(localStorage.getItem('reflections')) || [];
+    const list = document.getElementById('past-reflections');
+    reflections.forEach((reflection) => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `Reflection for ${reflection.date}: ${reflection.whatHappened}`;
+        list.prepend(listItem);
+    });
+</script>
+
 </body>
 </html>
