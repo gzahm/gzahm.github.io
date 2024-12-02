@@ -78,10 +78,16 @@
         // Send data to Google Apps Script
 fetch("https://script.google.com/macros/s/AKfycbz22ZkHjJGaz6H4fED1AewUIyPm1W9-QfxG3Mccl0S7xyRbrruy50kpiKaHzvvCOUlJ6g/exec", {
   method: "POST",
+  mode: "cors", // Ensure this is set
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify(reflection),
 })
-  .then((response) => response.json())
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    return response.json();
+  })
   .then((data) => {
     if (data.status === "success") {
       alert("Reflection submitted successfully!");
