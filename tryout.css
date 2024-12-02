@@ -143,15 +143,23 @@ body.home-page #content-area {
 .kodak-roll {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 10px; /* Adjust the spacing between images */
     justify-content: center;
     margin-top: 20px;
+    max-width: 100%; /* Ensure the container does not overflow */
+    padding: 10px; /* Optional: add some padding for spacing */
 }
 
 .kodak-roll img {
-    width: 100px;
+    width: calc((100% - 90px) / 10); /* Dynamically adjust width for 10 images */
+    max-width: 120px; /* Set a maximum width for larger screens */
     height: auto;
     border-radius: 5px;
+    transition: transform 0.3s ease; /* Add a hover effect */
+}
+
+.kodak-roll img:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
 }
 
 /* Scroll-to-Top Button */
