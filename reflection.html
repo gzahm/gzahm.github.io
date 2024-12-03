@@ -5,7 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Journal & Reflection</title>
     <link rel="stylesheet" href="tryout.css">
+    <script type="module">
+        // Import the Firebase configuration
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "YOUR_WEB_API_KEY", // Replace with your Web API Key
+            authDomain: "lezahm.firebaseapp.com",
+            projectId: "lezahm",
+            storageBucket: "lezahm.appspot.com",
+            messagingSenderId: "792842956911",
+            appId: "1:792842956911:web:6bf5f65694c221ff309d9a"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        document.addEventListener("DOMContentLoaded", async () => {
+            // Load past reflections
+            const reflectionsList = document.getElementById("past-reflections");
+            const querySnapshot = await getDocs(collection(db, "reflections"));
+
+            querySnapshot.forEach((doc) => {
+                const reflection = doc.data();
+                const listItem = document.createElement("li");
+                listItem.textContent = `Reflection for ${reflection.date}: ${reflection.whatHappened}`;
+                reflectionsList.appendChild(listItem);
+            });
+
+            // Submit the journal entry
+            document.getElementById("journal-form").addEventListener("submit", async (e) => {
+                e.preventDefault();
+
+                const whatHappened = document.getElementById("what-happened").value;
+                const feelings = document.getElementById("feelings").value;
+                const lessons = document.getElementById("lessons").value;
+                const accountability = document.getElementById("accountability").value;
+
+                const reflection = {
+                    date: new Date().toLocaleDateString(),
+                    whatHappened,
+                    feelings,
+                    lessons,
+                    accountability,
+                };
+
+                try {
+                    await addDoc(collection(db, "reflections"), reflection);
+                    alert("Reflection submitted successfully!");
+
+                    // Add to past reflections
+                    const listItem = document.createElement("li");
+                    listItem.textContent = `Reflection for ${reflection.date}: ${reflection.whatHappened}`;
+                    reflectionsList.appendChild(listItem);
+
+                    // Clear form
+                    e.target.reset();
+                } catch (error) {
+                    console.error("Error submitting reflection:", error);
+                    alert("An error occurred. Please try again.");
+                }
+            });
+        });
+    </script>
 </head>
+<body>
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
@@ -43,83 +109,11 @@
                 <li>No past reflections yet. Start journaling now!</li>
             </ul>
         </section>
-    <script src="global-header.js"></script>
     </main>
 
     <!-- Footer -->
     <footer>
         <p>&copy; 2024 Zahm's Corner. All rights reserved.</p>
     </footer>
-    <!-- JavaScript -->
-<script>
-    document.getElementById('journal-form').addEventListener('submit', function (e) {
-        e.preventDefault();
-
-        // Gather input data
-        const whatHappened = document.getElementById('what-happened').value;
-        const feelings = document.getElementById('feelings').value;
-        const lessons = document.getElementById('lessons').value;
-        const accountability = document.getElementById('accountability').value;
-
-        // Prepare data to send to Google Apps Script
-        const reflection = {
-            date: new Date().toLocaleDateString(),
-            whatHappened,
-            feelings,
-            lessons,
-            accountability,
-        };
-
-        // Save locally in case user wants to revisit
-        let reflections = JSON.parse(localStorage.getItem('reflections')) || [];
-        reflections.push(reflection);
-        localStorage.setItem('reflections', JSON.stringify(reflections));
-
-        // Send data to Google Apps Script
-fetch("https://script.google.com/macros/s/AKfycbz22ZkHjJGaz6H4fED1AewUIyPm1W9-QfxG3Mccl0S7xyRbrruy50kpiKaHzvvCOUlJ6g/exec", {
-  method: "POST",
-  mode: "cors", // Ensure this is set
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify(reflection),
-})
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-    return response.json();
-  })
-  .then((data) => {
-    if (data.status === "success") {
-      alert("Reflection submitted successfully!");
-    } else {
-      alert(`Error: ${data.message}`);
-    }
-  })
-  .catch((error) => {
-    console.error("Error submitting reflection:", error);
-    alert("An error occurred. Please try again.");
-  });
-
-
-        // Display in accountability section
-        const list = document.getElementById('past-reflections');
-        const listItem = document.createElement('li');
-        listItem.textContent = `Reflection for ${reflection.date}: ${reflection.whatHappened}`;
-        list.prepend(listItem);
-
-        // Clear form
-        this.reset();
-    });
-
-    // Load past reflections
-    const reflections = JSON.parse(localStorage.getItem('reflections')) || [];
-    const list = document.getElementById('past-reflections');
-    reflections.forEach((reflection) => {
-        const listItem = document.createElement('li');
-        listItem.textContent = `Reflection for ${reflection.date}: ${reflection.whatHappened}`;
-        list.prepend(listItem);
-    });
-</script>
-
 </body>
 </html>
