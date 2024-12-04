@@ -6,12 +6,14 @@
     <title>Journal & Reflection</title>
     <link rel="stylesheet" href="tryout.css">
     <script type="module">
-        // Import the Firebase configuration
+        // Import Firebase modules
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-        import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+        import { getFirestore, collection, addDoc, getDocs, query, where } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+        import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 
+        // Firebase configuration
         const firebaseConfig = {
-            apiKey: "AIzaSyCJFEoNrjyZNrvaMR9uKQYzWiQ7K3uNXkY", // Replace with your Web API Key
+            apiKey: "AIzaSyCJFEoNrjyZNrvaMR9uKQYzWiQ7K3uNXkY",
             authDomain: "lezahm.firebaseapp.com",
             projectId: "lezahm",
             storageBucket: "lezahm.appspot.com",
@@ -22,21 +24,53 @@
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
+        const auth = getAuth(app);
 
-        document.addEventListener("DOMContentLoaded", async () => {
-            // Load past reflections
+        document.addEventListener("DOMContentLoaded", () => {
             const reflectionsList = document.getElementById("past-reflections");
-            const querySnapshot = await getDocs(collection(db, "reflections"));
+            const loginForm = document.getElementById("login-form");
+            const journalForm = document.getElementById("journal-form");
+            const logoutButton = document.getElementById("logout-button");
 
-            querySnapshot.forEach((doc) => {
-                const reflection = doc.data();
-                const listItem = document.createElement("li");
-                listItem.textContent = `Reflection for ${reflection.date}: ${reflection.whatHappened}`;
-                reflectionsList.appendChild(listItem);
+            // Monitor authentication state
+            onAuthStateChanged(auth, async (user) => {
+                if (user) {
+                    document.getElementById("auth-section").style.display = "none";
+                    document.getElementById("main-content").style.display = "block";
+
+                    // Load user-specific reflections
+                    const userQuery = query(collection(db, "reflections"), where("uid", "==", user.uid));
+                    const querySnapshot = await getDocs(userQuery);
+                    querySnapshot.forEach((doc) => {
+                        const reflection = doc.data();
+                        const listItem = document.createElement("li");
+                        listItem.textContent = `Reflection for ${reflection.date}: ${reflection.whatHappened}`;
+                        reflectionsList.appendChild(listItem);
+                    });
+                } else {
+                    document.getElementById("auth-section").style.display = "block";
+                    document.getElementById("main-content").style.display = "none";
+                }
             });
 
-            // Submit the journal entry
-            document.getElementById("journal-form").addEventListener("submit", async (e) => {
+            // Handle login
+            loginForm.addEventListener("submit", (e) => {
+                e.preventDefault();
+                const email = document.getElementById("email").value;
+                const password = document.getElementById("password").value;
+
+                signInWithEmailAndPassword(auth, email, password)
+                    .then(() => alert("Logged in successfully!"))
+                    .catch((error) => alert(`Login failed: ${error.message}`));
+            });
+
+            // Handle logout
+            logoutButton.addEventListener("click", () => {
+                signOut(auth).then(() => alert("Logged out successfully!"));
+            });
+
+            // Handle journal form submission
+            journalForm.addEventListener("submit", async (e) => {
                 e.preventDefault();
 
                 const whatHappened = document.getElementById("what-happened").value;
@@ -44,15 +78,19 @@
                 const lessons = document.getElementById("lessons").value;
                 const accountability = document.getElementById("accountability").value;
 
-                const reflection = {
-                    date: new Date().toLocaleDateString(),
-                    whatHappened,
-                    feelings,
-                    lessons,
-                    accountability,
-                };
-
                 try {
+                    const user = auth.currentUser;
+                    if (!user) throw new Error("User not authenticated");
+
+                    const reflection = {
+                        uid: user.uid,
+                        date: new Date().toLocaleDateString(),
+                        whatHappened,
+                        feelings,
+                        lessons,
+                        accountability,
+                    };
+
                     await addDoc(collection(db, "reflections"), reflection);
                     alert("Reflection submitted successfully!");
 
@@ -72,44 +110,52 @@
     </script>
 </head>
 <body>
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Journal & Reflection</h1>
-            <p>Record your journey, reflect on your progress, and hold yourself accountable.</p>
-        </div>
+    <!-- Authentication Section -->
+    <section id="auth-section" style="display: none;">
+        <h2>Login</h2>
+        <form id="login-form">
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" required><br>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" required><br>
+            <button type="submit">Login</button>
+        </form>
     </section>
 
     <!-- Main Content -->
-    <main class="content-wrapper">
-        <section id="journal-section">
-            <h2>Today's Reflection</h2>
-            <form id="journal-form">
-                <label for="what-happened">What Happened Today:</label><br>
-                <textarea id="what-happened" name="what-happened" rows="4" placeholder="Describe today's events..."></textarea><br>
-
-                <label for="feelings">How Did I Feel:</label><br>
-                <textarea id="feelings" name="feelings" rows="4" placeholder="Reflect on your emotions..."></textarea><br>
-
-                <label for="lessons">What Did I Learn:</label><br>
-                <textarea id="lessons" name="lessons" rows="4" placeholder="Note key lessons or insights..."></textarea><br>
-
-                <label for="accountability">Accountability Check-In:</label><br>
-                <textarea id="accountability" name="accountability" rows="4" placeholder="Evaluate how you're aligning with your goals..."></textarea><br>
-
-                <button type="submit">Save Reflection</button>
-            </form>
+    <section id="main-content" style="display: none;">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Journal & Reflection</h1>
+                <p>Record your journey, reflect on your progress, and hold yourself accountable.</p>
+            </div>
         </section>
 
-        <section id="accountability-section">
-            <h2>Accountability Overview</h2>
-            <p>Track your progress and revisit previous reflections to see your growth over time.</p>
-            <ul id="past-reflections">
-                <!-- Placeholder for dynamically loaded past reflections -->
-                <li>No past reflections yet. Start journaling now!</li>
-            </ul>
-        </section>
-    </main>
+        <!-- Journal Form -->
+        <main class="content-wrapper">
+            <section id="journal-section">
+                <h2>Today's Reflection</h2>
+                <form id="journal-form">
+                    <label for="what-happened">What Happened Today:</label><br>
+                    <textarea id="what-happened" rows="4" placeholder="Describe today's events..."></textarea><br>
+                    <label for="feelings">How Did I Feel:</label><br>
+                    <textarea id="feelings" rows="4" placeholder="Reflect on your emotions..."></textarea><br>
+                    <label for="lessons">What Did I Learn:</label><br>
+                    <textarea id="lessons" rows="4" placeholder="Note key lessons or insights..."></textarea><br>
+                    <label for="accountability">Accountability Check-In:</label><br>
+                    <textarea id="accountability" rows="4" placeholder="Evaluate how you're aligning with your goals..."></textarea><br>
+                    <button type="submit">Save Reflection</button>
+                </form>
+            </section>
+
+            <section id="accountability-section">
+                <h2>Accountability Overview</h2>
+                <ul id="past-reflections"></ul>
+            </section>
+            <button id="logout-button">Logout</button>
+        </main>
+    </section>
 
     <!-- Footer -->
     <footer>
