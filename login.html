@@ -7,18 +7,22 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="auth-page">
-    <div class="container">
-        <h1>Sign In</h1>
+    <div class="auth-container">
+        <h1>Welcome Back!</h1>
+        <p>Sign in to access your journal and reflections.</p>
         <form id="login-form">
-            <label for="email">Email</label>
-            <input type="email" id="email" placeholder="Enter your email" required>
-            <label for="password">Password</label>
-            <input type="password" id="password" placeholder="Enter your password" required>
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="email" placeholder="Email Address" required>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="password" placeholder="Password" required>
+            </div>
             <button type="submit">Sign In</button>
         </form>
-        <p class="error" id="login-error"></p>
-        <a href="reset.html">Forgot Password?</a>
-        <a href="register.html">Create Account</a>
+        <a href="reset.html">Forgot your password?</a>
+        <a href="register.html">Don't have an account? Sign up!</a>
     </div>
     <script type="module" src="firebaseAuth.js"></script>
     <script src="global-header.js"></script>
