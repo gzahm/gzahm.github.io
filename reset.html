@@ -7,15 +7,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="auth-page">
-    <div class="container">
-        <h1>Reset Password</h1>
+    <div class="auth-container">
+        <h1>Reset Your Password</h1>
+        <p>Enter your email address, and we'll send you instructions to reset your password.</p>
         <form id="reset-form">
-            <label for="email">Email</label>
-            <input type="email" id="email" placeholder="Enter your email" required>
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="email" placeholder="Email Address" required>
+            </div>
             <button type="submit">Send Reset Link</button>
         </form>
-        <p class="error" id="reset-error"></p>
-        <p class="success" id="reset-success"></p>
         <a href="login.html">Back to Sign In</a>
     </div>
     <script type="module" src="firebaseAuth.js"></script>
