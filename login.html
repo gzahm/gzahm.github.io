@@ -1,35 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In or Create Account</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <h1>Zahm's Corner</h1>
-  </header>
-  <main>
-    <h2>Login</h2>
-    <form id="login-form">
-      <label for="email">Email:</label>
-      <input type="email" id="email" required>
-      <label for="password">Password:</label>
-      <input type="password" id="password" required>
-      <button type="submit">Login</button>
-    </form>
-  </main>
-  <footer>&copy; 2024 Zahm's Corner</footer>
-  <script type="module">
-    import { loginUser } from "./js/auth.js";
+    <div class="container">
+        <h1>Welcome Back</h1>
+        <p>Sign in to access your account or create a new one.</p>
 
-    document.getElementById("login-form").addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
-      await loginUser(email, password);
-    });
-  </script>
+        <!-- Login Form -->
+        <form id="login-form">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+            <button type="submit">Sign In</button>
+        </form>
+
+        <p>Don't have an account? <a href="register.html">Create one here</a></p>
+        <p>Forgot your password? <a href="reset.html">Reset it here</a></p>
+    </div>
+    <script type="module" src="auth.js"></script>
 </body>
 </html>
