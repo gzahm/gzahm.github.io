@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Header will be dynamically injected -->
+    <script src="global-header.js"></script>
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
@@ -51,106 +54,8 @@
         <p>&copy; 2024 Zahm's Corner. All rights reserved.</p>
     </footer>
 
-    <!-- Import scripts -->
-    <script type="module">
-        import { auth, logInWithGoogle, logOut, observeAuthState } from "./firebaseAuth.js";
-        import { addReflection, getUserReflections } from "./firebaseFirestore.js";
-
-        document.addEventListener("DOMContentLoaded", () => {
-            const loginBtn = document.createElement("button");
-            loginBtn.id = "login-btn";
-            loginBtn.textContent = "Sign In";
-            document.body.appendChild(loginBtn);
-
-            const logoutBtn = document.createElement("button");
-            logoutBtn.id = "logout-btn";
-            logoutBtn.textContent = "Sign Out";
-            logoutBtn.style.display = "none";
-            document.body.appendChild(logoutBtn);
-
-            const reflectionsList = document.getElementById("past-reflections");
-
-            observeAuthState(async (user) => {
-                if (user) {
-                    loginBtn.style.display = "none";
-                    logoutBtn.style.display = "block";
-                    loadUserReflections(user.uid);
-                } else {
-                    loginBtn.style.display = "block";
-                    logoutBtn.style.display = "none";
-                    loadGuestReflections();
-                }
-            });
-
-            loginBtn.addEventListener("click", async () => {
-                try {
-                    await logInWithGoogle();
-                } catch (error) {
-                    console.error("Login failed:", error);
-                }
-            });
-
-            logoutBtn.addEventListener("click", async () => {
-                try {
-                    await logOut();
-                    reflectionsList.innerHTML = "";
-                } catch (error) {
-                    console.error("Logout failed:", error);
-                }
-            });
-
-            document.getElementById("journal-form").addEventListener("submit", async (e) => {
-                e.preventDefault();
-
-                const reflection = {
-                    date: new Date().toLocaleDateString(),
-                    whatHappened: document.getElementById("what-happened").value,
-                    feelings: document.getElementById("feelings").value,
-                    lessons: document.getElementById("lessons").value,
-                    accountability: document.getElementById("accountability").value,
-                };
-
-                if (auth.currentUser) {
-                    reflection.userId = auth.currentUser.uid;
-                    await addReflection(reflection);
-                    alert("Reflection saved to your account!");
-                } else {
-                    const reflections = JSON.parse(localStorage.getItem("reflections")) || [];
-                    reflections.push(reflection);
-                    localStorage.setItem("reflections", JSON.stringify(reflections));
-                    alert("Reflection saved locally!");
-                }
-
-                const listItem = document.createElement("li");
-                listItem.textContent = `Reflection for ${reflection.date}: ${reflection.whatHappened}`;
-                reflectionsList.appendChild(listItem);
-                e.target.reset();
-            });
-        });
-
-        async function loadUserReflections(userId) {
-            const reflectionsList = document.getElementById("past-reflections");
-            reflectionsList.innerHTML = "";
-            const querySnapshot = await getUserReflections(userId);
-            querySnapshot.forEach((doc) => {
-                const reflection = doc.data();
-                const listItem = document.createElement("li");
-                listItem.textContent = `Reflection for ${reflection.date}: ${reflection.whatHappened}`;
-                reflectionsList.appendChild(listItem);
-            });
-        }
-
-        function loadGuestReflections() {
-            const reflectionsList = document.getElementById("past-reflections");
-            reflectionsList.innerHTML = "";
-            const reflections = JSON.parse(localStorage.getItem("reflections")) || [];
-            reflections.forEach((reflection) => {
-                const listItem = document.createElement("li");
-                listItem.textContent = `Reflection for ${reflection.date}: ${reflection.whatHappened}`;
-                reflectionsList.appendChild(listItem);
-            });
-        }
-    </script>
-<script src="global-header.js"></script>
+    <!-- Import external scripts -->
+    <script type="module" src="firebaseAuth.js"></script>
+    <script type="module" src="firebaseFirestore.js"></script>
 </body>
 </html>
