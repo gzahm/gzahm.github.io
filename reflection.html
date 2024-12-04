@@ -5,163 +5,152 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Journal & Reflection</title>
     <link rel="stylesheet" href="global-header.css">
-    <link rel="stylesheet" href="tryout.css">
-    <script type="module">
-        // Import Firebase modules
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-        import { getFirestore, collection, addDoc, getDocs, query, where } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
-        import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
-
-        // Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyCJFEoNrjyZNrvaMR9uKQYzWiQ7K3uNXkY",
-            authDomain: "lezahm.firebaseapp.com",
-            projectId: "lezahm",
-            storageBucket: "lezahm.appspot.com",
-            messagingSenderId: "792842956911",
-            appId: "1:792842956911:web:6bf5f65694c221ff309d9a"
-        };
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-        const auth = getAuth(app);
-
-        document.addEventListener("DOMContentLoaded", () => {
-            const reflectionsList = document.getElementById("past-reflections");
-            const loginForm = document.getElementById("login-form");
-            const journalForm = document.getElementById("journal-form");
-            const logoutButton = document.getElementById("logout-button");
-
-            // Monitor authentication state
-            onAuthStateChanged(auth, async (user) => {
-                if (user) {
-                    document.getElementById("auth-section").style.display = "none";
-                    document.getElementById("main-content").style.display = "block";
-
-                    // Load user-specific reflections
-                    const userQuery = query(collection(db, "reflections"), where("uid", "==", user.uid));
-                    const querySnapshot = await getDocs(userQuery);
-                    querySnapshot.forEach((doc) => {
-                        const reflection = doc.data();
-                        const listItem = document.createElement("li");
-                        listItem.textContent = `Reflection for ${reflection.date}: ${reflection.whatHappened}`;
-                        reflectionsList.appendChild(listItem);
-                    });
-                } else {
-                    document.getElementById("auth-section").style.display = "block";
-                    document.getElementById("main-content").style.display = "none";
-                }
-            });
-
-            // Handle login
-            loginForm.addEventListener("submit", (e) => {
-                e.preventDefault();
-                const email = document.getElementById("email").value;
-                const password = document.getElementById("password").value;
-
-                signInWithEmailAndPassword(auth, email, password)
-                    .then(() => alert("Logged in successfully!"))
-                    .catch((error) => alert(`Login failed: ${error.message}`));
-            });
-
-            // Handle logout
-            logoutButton.addEventListener("click", () => {
-                signOut(auth).then(() => alert("Logged out successfully!"));
-            });
-
-            // Handle journal form submission
-            journalForm.addEventListener("submit", async (e) => {
-                e.preventDefault();
-
-                const whatHappened = document.getElementById("what-happened").value;
-                const feelings = document.getElementById("feelings").value;
-                const lessons = document.getElementById("lessons").value;
-                const accountability = document.getElementById("accountability").value;
-
-                try {
-                    const user = auth.currentUser;
-                    if (!user) throw new Error("User not authenticated");
-
-                    const reflection = {
-                        uid: user.uid,
-                        date: new Date().toLocaleDateString(),
-                        whatHappened,
-                        feelings,
-                        lessons,
-                        accountability,
-                    };
-
-                    await addDoc(collection(db, "reflections"), reflection);
-                    alert("Reflection submitted successfully!");
-
-                    // Add to past reflections
-                    const listItem = document.createElement("li");
-                    listItem.textContent = `Reflection for ${reflection.date}: ${reflection.whatHappened}`;
-                    reflectionsList.appendChild(listItem);
-
-                    // Clear form
-                    e.target.reset();
-                } catch (error) {
-                    console.error("Error submitting reflection:", error);
-                    alert("An error occurred. Please try again.");
-                }
-            });
-        });
-    </script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Authentication Section -->
-    <section id="auth-section" style="display: none;">
-        <h2>Login</h2>
-        <form id="login-form">
-            <label for="email">Email:</label><br>
-            <input type="email" id="email" required><br>
-            <label for="password">Password:</label><br>
-            <input type="password" id="password" required><br>
-            <button type="submit">Login</button>
-        </form>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Journal & Reflection</h1>
+            <p>Record your journey, reflect on your progress, and hold yourself accountable.</p>
+        </div>
     </section>
 
     <!-- Main Content -->
-    <section id="main-content" style="display: none;">
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Journal & Reflection</h1>
-                <p>Record your journey, reflect on your progress, and hold yourself accountable.</p>
-            </div>
+    <main class="content-wrapper">
+        <section id="journal-section">
+            <h2>Today's Reflection</h2>
+            <form id="journal-form">
+                <label for="what-happened">What Happened Today:</label><br>
+                <textarea id="what-happened" rows="4" placeholder="Describe today's events..."></textarea><br>
+
+                <label for="feelings">How Did I Feel:</label><br>
+                <textarea id="feelings" rows="4" placeholder="Reflect on your emotions..."></textarea><br>
+
+                <label for="lessons">What Did I Learn:</label><br>
+                <textarea id="lessons" rows="4" placeholder="Note key lessons or insights..."></textarea><br>
+
+                <label for="accountability">Accountability Check-In:</label><br>
+                <textarea id="accountability" rows="4" placeholder="Evaluate how you're aligning with your goals..."></textarea><br>
+
+                <button type="submit">Save Reflection</button>
+            </form>
         </section>
 
-        <!-- Journal Form -->
-        <main class="content-wrapper">
-            <section id="journal-section">
-                <h2>Today's Reflection</h2>
-                <form id="journal-form">
-                    <label for="what-happened">What Happened Today:</label><br>
-                    <textarea id="what-happened" rows="4" placeholder="Describe today's events..."></textarea><br>
-                    <label for="feelings">How Did I Feel:</label><br>
-                    <textarea id="feelings" rows="4" placeholder="Reflect on your emotions..."></textarea><br>
-                    <label for="lessons">What Did I Learn:</label><br>
-                    <textarea id="lessons" rows="4" placeholder="Note key lessons or insights..."></textarea><br>
-                    <label for="accountability">Accountability Check-In:</label><br>
-                    <textarea id="accountability" rows="4" placeholder="Evaluate how you're aligning with your goals..."></textarea><br>
-                    <button type="submit">Save Reflection</button>
-                </form>
-            </section>
-
-            <section id="accountability-section">
-                <h2>Accountability Overview</h2>
-                <ul id="past-reflections"></ul>
-            </section>
-            <button id="logout-button">Logout</button>
-        </main>
-    </section>
+        <section id="accountability-section">
+            <h2>Accountability Overview</h2>
+            <p>Track your progress and revisit previous reflections to see your growth over time.</p>
+            <ul id="past-reflections">
+                <li>No past reflections yet. Start journaling now!</li>
+            </ul>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer>
         <p>&copy; 2024 Zahm's Corner. All rights reserved.</p>
     </footer>
+
+    <!-- Import scripts -->
+    <script type="module">
+        import { auth, logInWithGoogle, logOut, observeAuthState } from "./firebaseAuth.js";
+        import { addReflection, getUserReflections } from "./firebaseFirestore.js";
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const loginBtn = document.createElement("button");
+            loginBtn.id = "login-btn";
+            loginBtn.textContent = "Sign In";
+            document.body.appendChild(loginBtn);
+
+            const logoutBtn = document.createElement("button");
+            logoutBtn.id = "logout-btn";
+            logoutBtn.textContent = "Sign Out";
+            logoutBtn.style.display = "none";
+            document.body.appendChild(logoutBtn);
+
+            const reflectionsList = document.getElementById("past-reflections");
+
+            observeAuthState(async (user) => {
+                if (user) {
+                    loginBtn.style.display = "none";
+                    logoutBtn.style.display = "block";
+                    loadUserReflections(user.uid);
+                } else {
+                    loginBtn.style.display = "block";
+                    logoutBtn.style.display = "none";
+                    loadGuestReflections();
+                }
+            });
+
+            loginBtn.addEventListener("click", async () => {
+                try {
+                    await logInWithGoogle();
+                } catch (error) {
+                    console.error("Login failed:", error);
+                }
+            });
+
+            logoutBtn.addEventListener("click", async () => {
+                try {
+                    await logOut();
+                    reflectionsList.innerHTML = "";
+                } catch (error) {
+                    console.error("Logout failed:", error);
+                }
+            });
+
+            document.getElementById("journal-form").addEventListener("submit", async (e) => {
+                e.preventDefault();
+
+                const reflection = {
+                    date: new Date().toLocaleDateString(),
+                    whatHappened: document.getElementById("what-happened").value,
+                    feelings: document.getElementById("feelings").value,
+                    lessons: document.getElementById("lessons").value,
+                    accountability: document.getElementById("accountability").value,
+                };
+
+                if (auth.currentUser) {
+                    reflection.userId = auth.currentUser.uid;
+                    await addReflection(reflection);
+                    alert("Reflection saved to your account!");
+                } else {
+                    const reflections = JSON.parse(localStorage.getItem("reflections")) || [];
+                    reflections.push(reflection);
+                    localStorage.setItem("reflections", JSON.stringify(reflections));
+                    alert("Reflection saved locally!");
+                }
+
+                const listItem = document.createElement("li");
+                listItem.textContent = `Reflection for ${reflection.date}: ${reflection.whatHappened}`;
+                reflectionsList.appendChild(listItem);
+                e.target.reset();
+            });
+        });
+
+        async function loadUserReflections(userId) {
+            const reflectionsList = document.getElementById("past-reflections");
+            reflectionsList.innerHTML = "";
+            const querySnapshot = await getUserReflections(userId);
+            querySnapshot.forEach((doc) => {
+                const reflection = doc.data();
+                const listItem = document.createElement("li");
+                listItem.textContent = `Reflection for ${reflection.date}: ${reflection.whatHappened}`;
+                reflectionsList.appendChild(listItem);
+            });
+        }
+
+        function loadGuestReflections() {
+            const reflectionsList = document.getElementById("past-reflections");
+            reflectionsList.innerHTML = "";
+            const reflections = JSON.parse(localStorage.getItem("reflections")) || [];
+            reflections.forEach((reflection) => {
+                const listItem = document.createElement("li");
+                listItem.textContent = `Reflection for ${reflection.date}: ${reflection.whatHappened}`;
+                reflectionsList.appendChild(listItem);
+            });
+        }
+    </script>
 <script src="global-header.js"></script>
 </body>
 </html>
