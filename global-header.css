@@ -1,0 +1,80 @@
+/* global-header.css */
+
+/* Header Styles */
+header {
+    background-color: #FF6700;
+    padding: 15px 0;
+    color: white;
+    position: relative;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-container img {
+    height: 50px;
+    margin-left: 20px;
+}
+
+.header-title {
+    font-family: 'Arial', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.global-nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.global-nav ul li {
+    margin: 0 10px;
+}
+
+.global-nav ul a {
+    text-decoration: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.global-nav ul a:hover {
+    background-color: #005f73;
+}
+
+/* Hamburger Button for Mobile */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 24px;
+    margin-right: 20px;
+}
+
+/* Media Query for Responsive Design */
+@media (max-width: 768px) {
+    .global-nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #FF6700;
+        width: 100%;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .global-nav ul.show {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
