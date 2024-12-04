@@ -1,217 +1,132 @@
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+/* Reset Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
-header {
-    background: #333;
-    color: #fff;
-    padding: 1rem;
-    text-align: center;
+/* Body and General Layout */
+body {
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
 }
 
 .container {
-    width: 80%;
-    margin: auto;
-}
-
-.content {
-    padding: 2rem;
-    background: #fff;
-    margin: 2rem 0;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 1rem 0;
-}
-
-video {
     width: 100%;
-    height: auto;
-    display: block;
-    margin: 1rem 0;
-}
-
-footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1rem;
-}
-.banner-header {
-    background-image: url('https://github.com/user-attachments/assets/15ff56a3-9645-445b-8c01-fe29302be75e'); /* Path to your image */
-    background-size: cover; /* Makes sure the image covers the entire header */
-    background-position: center; /* Centers the image */
-    height: 300px; /* Adjust height based on the size you want */
-    color: white; /* Text color */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate (-50%, -50%)
-    text-align: center;    
-}
-
-.header-content {
-    background: rgba(0, 0, 0, 0.5); /* Optional: Adds a dark overlay for better text visibility */
+    max-width: 400px;
     padding: 20px;
-    border-radius: 10px;
-}
-#polaroid-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  padding: 20px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
 }
 
-.polaroid {
-  background: white;
-  padding: 10px;
-  border: 5px solid #fff;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  width: 200px;
-  margin: 10px;
-  transition: transform 0.2s ease;
-}
-
-.polaroid:hover {
-  transform: scale(1.05);
-}
-
-.polaroid img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.caption {
-  font-family: "Permanent Marker", cursive; /* Use a handwritten font */
-  font-size: 14px;
-  color: #333;
-  margin-top: 8px;
-}
-.image-grid {
-  display: flex;
-  gap: 10px; /* Space between images */
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.image-grid img {
-  width: 48%; /* Adjust to fit two images side by side */
-  height: auto;
-  border-radius: 5px; /* Optional: rounded corners */
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Optional: shadow for a nice effect */
-}
-.kodak-roll {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Adjust minmax width as desired */
-  gap: 10px;
-  overflow-x: auto;
-  padding: 15px 0;
-  background-color: #333;
-  border-top: 5px solid black;
-  border-bottom: 5px solid black;
-  scroll-snap-type: x mandatory;
-}
-
-.kodak-roll img {
-  width: 100%;
-  aspect-ratio: 4 / 3; /* Fixed aspect ratio for each image */
-  object-fit: cover;
-  border-radius: 5px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  scroll-snap-align: start;
-}
-@media (min-width: 600px) {
-  .kodak-roll {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  }
-}
-
-@media (min-width: 1200px) {
-  .kodak-roll {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  }
-}
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f0f4f8;
-}
-
-.brain-container {
-    position: relative;
-    width: 400px;
-    height: 400px;
-    animation: pulse 4s infinite;
-}
-
-/* Center Brain Node */
-.brain-center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #5c6bc0;
-    color: white;
-    padding: 20px;
-    border-radius: 50%;
+/* Header Styles */
+h1 {
     text-align: center;
-    cursor: pointer;
-    font-size: 1.2em;
-    animation: fadeIn 2s ease;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #FF6700;
 }
 
-/* Branch Nodes */
-.branch {
-    position: absolute;
-    width: 120px;
+p {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
     padding: 10px;
-    background-color: #81c784;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #FF6700;
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 103, 0, 0.5);
+}
+
+/* Button Styles */
+button {
+    padding: 10px;
+    background-color: #FF6700;
     color: white;
-    text-align: center;
-    border-radius: 50%;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
     cursor: pointer;
-    transition: transform 0.3s ease;
-    animation: fadeIn 2s ease forwards;
-    opacity: 0; /* Starts hidden, will fade in */
+    transition: background-color 0.3s ease;
 }
 
-/* Branch positions around the center */
-.branch.travel { top: 10%; left: 50%; transform: translateX(-50%); animation-delay: 0.5s; }
-.branch.sports { top: 50%; left: 90%; transform: translateY(-50%); animation-delay: 1s; }
-.branch.career { top: 90%; left: 50%; transform: translate(-50%, -100%); animation-delay: 1.5s; }
-.branch.interests { top: 50%; left: 10%; transform: translateY(-50%); animation-delay: 2s; }
-.branch.learning { top: 30%; left: 80%; transform: translate(-50%, -50%); animation-delay: 2.5s; }
-.branch.about { top: 70%; left: 20%; transform: translate(-50%, -50%); animation-delay: 3s; }
-
-/* Hover Effect */
-.branch:hover {
-    transform: scale(1.1);
-    background-color: #66bb6a;
+button:hover {
+    background-color: #005f73;
 }
 
-/* Animations */
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
+/* Links */
+a {
+    text-decoration: none;
+    color: #FF6700;
+    font-size: 0.9rem;
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Error and Success Messages */
+.error {
+    color: #d9534f;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.success {
+    color: #5cb85c;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
 }
