@@ -4,24 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reset Password</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Reset Password</h1>
-        <p>Enter your email to receive a password reset link.</p>
+    <main class="content-wrapper">
+        <section id="reset-section">
+            <h2>Reset Password</h2>
+            <form id="reset-form">
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required><br>
 
-        <!-- Reset Password Form -->
-        <form id="reset-form">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <button type="submit">Send Password Reset Email</button>
+            </form>
 
-            <button type="submit">Reset Password</button>
-        </form>
+            <p>Remember your password? <a href="login.html">Log in here</a>.</p>
+        </section>
+    </main>
 
-        <p>Remembered your password? <a href="login.html">Sign in here</a></p>
-    </div>
-    <script type="module" src="auth.js"></script>
+    <script type="module">
+        import { resetPassword } from './firebaseAuth.js';
+
+        document.getElementById('reset-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value;
+
+            try {
+                await resetPassword(email);
+                alert('Password reset email sent!');
+                window.location.href = 'login.html'; // Redirect to login page
+            } catch (error) {
+                console.error('Error resetting password:', error);
+                alert('Failed to send password reset email. Please try again.');
+            }
+        });
+    </script>
 <script src="global-header.js"></script>
 </body>
 </html>
