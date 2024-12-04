@@ -6,8 +6,8 @@
     font-family: Arial, sans-serif;
 }
 
-/* Body and General Layout */
-body {
+/* Scoped Styles for Auth Pages */
+.auth-page body {
     line-height: 1.6;
     color: #333;
     margin: 0;
@@ -19,7 +19,7 @@ body {
     min-height: 100vh;
 }
 
-.container {
+.auth-page .container {
     width: 100%;
     max-width: 400px;
     padding: 20px;
@@ -29,34 +29,34 @@ body {
 }
 
 /* Header Styles */
-h1 {
+.auth-page h1 {
     text-align: center;
     font-size: 2rem;
     margin-bottom: 20px;
     color: #FF6700;
 }
 
-p {
+.auth-page p {
     text-align: center;
     margin-bottom: 20px;
     color: #555;
 }
 
 /* Form Styles */
-form {
+.auth-page form {
     display: flex;
     flex-direction: column;
 }
 
-label {
+.auth-page label {
     margin-bottom: 8px;
     font-weight: bold;
     color: #555;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"] {
+.auth-page input[type="text"],
+.auth-page input[type="email"],
+.auth-page input[type="password"] {
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
@@ -64,16 +64,16 @@ input[type="password"] {
     font-size: 1rem;
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus {
+.auth-page input[type="text"]:focus,
+.auth-page input[type="email"]:focus,
+.auth-page input[type="password"]:focus {
     border-color: #FF6700;
     outline: none;
     box-shadow: 0 0 5px rgba(255, 103, 0, 0.5);
 }
 
 /* Button Styles */
-button {
+.auth-page button {
     padding: 10px;
     background-color: #FF6700;
     color: white;
@@ -84,17 +84,17 @@ button {
     transition: background-color 0.3s ease;
 }
 
-button:hover {
+.auth-page button:hover {
     background-color: #005f73;
 }
 
-button:disabled {
+.auth-page button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
 }
 
 /* Links */
-a {
+.auth-page a {
     text-decoration: none;
     color: #FF6700;
     font-size: 0.9rem;
@@ -103,18 +103,18 @@ a {
     margin-top: 15px;
 }
 
-a:hover {
+.auth-page a:hover {
     text-decoration: underline;
 }
 
 /* Error and Success Messages */
-.error {
+.auth-page .error {
     color: #d9534f;
     font-size: 0.9rem;
     margin-bottom: 10px;
 }
 
-.success {
+.auth-page .success {
     color: #5cb85c;
     font-size: 0.9rem;
     margin-bottom: 10px;
@@ -122,11 +122,11 @@ a:hover {
 
 /* Responsive Design */
 @media (max-width: 480px) {
-    .container {
+    .auth-page .container {
         padding: 15px;
     }
 
-    h1 {
+    .auth-page h1 {
         font-size: 1.8rem;
     }
 }
