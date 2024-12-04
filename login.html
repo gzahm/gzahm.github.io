@@ -3,60 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Sign In</title>
+    <link rel="stylesheet" href="global-header.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <main class="content-wrapper">
-        <section id="login-section">
-            <h2>Login</h2>
-            <form id="login-form">
-                <label for="email">Email:</label><br>
-                <input type="email" id="email" name="email" required><br>
-
-                <label for="password">Password:</label><br>
-                <input type="password" id="password" name="password" required><br>
-
-                <button type="submit">Login</button>
-            </form>
-
-            <button id="google-login">Login with Google</button>
-
-            <p>Don't have an account? <a href="register.html">Sign up here</a>.</p>
-            <p>Forgot your password? <a href="reset.html">Reset it here</a>.</p>
-        </section>
-    </main>
-
-    <script type="module">
-        import { logInWithEmail, logInWithGoogle } from './firebaseAuth.js';
-
-        document.getElementById('login-form').addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-
-            try {
-                await logInWithEmail(email, password);
-                alert('Login successful!');
-                window.location.href = 'reflection.html'; // Redirect after login
-            } catch (error) {
-                console.error('Error logging in:', error);
-                alert('Failed to log in. Please check your credentials.');
-            }
-        });
-
-        document.getElementById('google-login').addEventListener('click', async () => {
-            try {
-                await logInWithGoogle();
-                alert('Login successful!');
-                window.location.href = 'reflection.html'; // Redirect after login
-            } catch (error) {
-                console.error('Error logging in with Google:', error);
-                alert('Failed to log in with Google.');
-            }
-        });
-    </script>
+<body class="auth-page">
+    <div class="container">
+        <h1>Sign In</h1>
+        <form id="login-form">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter your password" required>
+            <button type="submit">Sign In</button>
+        </form>
+        <p class="error" id="login-error"></p>
+        <a href="reset.html">Forgot Password?</a>
+        <a href="register.html">Create Account</a>
+    </div>
+    <script type="module" src="firebaseAuth.js"></script>
     <script src="global-header.js"></script>
 </body>
 </html>
