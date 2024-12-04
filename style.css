@@ -3,118 +3,125 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
-/* Scoped Styles for Auth Pages */
-.auth-page body {
-    line-height: 1.6;
-    color: #333;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
+/* Authentication Page Body */
+.auth-page {
+    background: linear-gradient(135deg, #FF6700, #f9f9f9);
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
 }
 
-.auth-page .container {
-    width: 100%;
+/* Authentication Container */
+.auth-container {
+    background: linear-gradient(135deg, #ffffff, #f5f5f5);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 30px;
     max-width: 400px;
-    padding: 20px;
-    background: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
+    width: 100%;
+    text-align: center;
+    animation: fadeIn 0.6s ease-out;
 }
 
 /* Header Styles */
-.auth-page h1 {
-    text-align: center;
-    font-size: 2rem;
+.auth-container h1 {
+    font-size: 2.2rem;
     margin-bottom: 20px;
     color: #FF6700;
 }
 
-.auth-page p {
-    text-align: center;
+.auth-container p {
     margin-bottom: 20px;
     color: #555;
-}
-
-/* Form Styles */
-.auth-page form {
-    display: flex;
-    flex-direction: column;
-}
-
-.auth-page label {
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: #555;
-}
-
-.auth-page input[type="text"],
-.auth-page input[type="email"],
-.auth-page input[type="password"] {
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
     font-size: 1rem;
 }
 
-.auth-page input[type="text"]:focus,
-.auth-page input[type="email"]:focus,
-.auth-page input[type="password"]:focus {
-    border-color: #FF6700;
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+    text-align: left;
+    width: 100%;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    background: #f1f1f1;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.input-group i {
+    margin-right: 10px;
+    color: #888;
+}
+
+.input-group input {
+    border: none;
+    background: transparent;
+    width: 100%;
     outline: none;
-    box-shadow: 0 0 5px rgba(255, 103, 0, 0.5);
+    font-size: 1rem;
 }
 
 /* Button Styles */
-.auth-page button {
+button {
     padding: 10px;
-    background-color: #FF6700;
+    background: linear-gradient(135deg, #FF6700, #ff934f);
     color: white;
     border: none;
     border-radius: 4px;
     font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+    width: 100%;
 }
 
-.auth-page button:hover {
-    background-color: #005f73;
+button:hover {
+    background-color: #ff4500;
+    transform: translateY(-2px);
 }
 
-.auth-page button:disabled {
+button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
 }
 
 /* Links */
-.auth-page a {
+a {
     text-decoration: none;
     color: #FF6700;
     font-size: 0.9rem;
-    display: block;
-    text-align: center;
     margin-top: 15px;
 }
 
-.auth-page a:hover {
+a:hover {
     text-decoration: underline;
 }
 
 /* Error and Success Messages */
-.auth-page .error {
+.error {
     color: #d9534f;
     font-size: 0.9rem;
     margin-bottom: 10px;
 }
 
-.auth-page .success {
+.success {
     color: #5cb85c;
     font-size: 0.9rem;
     margin-bottom: 10px;
@@ -122,11 +129,23 @@
 
 /* Responsive Design */
 @media (max-width: 480px) {
-    .auth-page .container {
+    .auth-container {
         padding: 15px;
     }
 
-    .auth-page h1 {
+    .auth-container h1 {
         font-size: 1.8rem;
+    }
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
     }
 }
