@@ -8,24 +8,32 @@ document.addEventListener('DOMContentLoaded', function () {
             return response.text();
         })
         .then((html) => {
+            // Insert the header at the top of the body
             document.body.insertAdjacentHTML('afterbegin', html);
 
-            // Initialize the hamburger menu functionality after the header is added
+            // Initialize the hamburger menu functionality
             const hamburger = document.querySelector('.hamburger');
             const navMenu = document.querySelector('.global-nav ul');
 
             if (hamburger && navMenu) {
-                // Toggle the menu and add animations
+                // Add event listener for hamburger click
                 hamburger.addEventListener('click', () => {
-                    navMenu.classList.toggle('show'); // Toggle visibility of menu
-                    hamburger.classList.toggle('active'); // Toggle animation of hamburger icon
+                    // Toggle visibility of menu
+                    navMenu.classList.toggle('show');
+                    
+                    // Toggle hamburger active state
+                    hamburger.classList.toggle('active');
                     
                     // Update aria-expanded attribute for accessibility
-                    const expanded = hamburger.getAttribute('aria-expanded') === 'true';
-                    hamburger.setAttribute('aria-expanded', !expanded);
+                    const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+                    hamburger.setAttribute('aria-expanded', !isExpanded);
                 });
+
+                // Ensure the menu is hidden on page load for accessibility
+                navMenu.classList.remove('show');
+                hamburger.setAttribute('aria-expanded', 'false');
             } else {
-                console.error('Hamburger or navMenu not found.');
+                console.error('Hamburger or navMenu not found in the DOM.');
             }
         })
         .catch((error) => {
