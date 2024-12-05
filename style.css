@@ -10,9 +10,22 @@
 .auth-page {
     background: linear-gradient(135deg, #FF6700, #f9f9f9);
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column; /* Ensure header remains separate */
     min-height: 100vh;
+}
+
+/* Header (specific to auth page) */
+.auth-page header {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 20px;
+    background-color: #FF6700;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 100;
 }
 
 /* Authentication Container */
@@ -25,6 +38,7 @@
     width: 100%;
     text-align: center;
     animation: fadeIn 0.6s ease-out;
+    margin: 20px auto 0; /* Spacing below header */
 }
 
 /* Header Styles */
@@ -131,10 +145,16 @@ a:hover {
 @media (max-width: 480px) {
     .auth-container {
         padding: 15px;
+        margin-top: 20px;
     }
 
     .auth-container h1 {
         font-size: 1.8rem;
+    }
+
+    header {
+        flex-direction: column;
+        padding: 10px;
     }
 }
 
