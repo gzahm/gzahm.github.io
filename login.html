@@ -3,29 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<script src="global-header.js"></script>
 <body class="auth-page">
-    
-    <div class="auth-container">
-        <h1>Welcome Back, Gabriel!</h1>
-        <p>Sign in to access your journal and reflections.</p>
+    <header>
+        <script src="global-header.js"></script>
+    </header>
+    <main class="auth-container">
+        <h1>Sign In</h1>
         <form id="login-form">
-            <div class="input-group">
-                <i class="fas fa-envelope"></i>
-                <input type="email" id="email" placeholder="Email Address" required>
+            <div>
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
             </div>
-            <div class="input-group">
-                <i class="fas fa-lock"></i>
-                <input type="password" id="password" placeholder="Password" required>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
             </div>
             <button type="submit">Sign In</button>
         </form>
-        <a href="reset.html">Forgot your password?</a>
-        <a href="register.html">Don't have an account? Sign up!</a>
-    </div>
-    <script type="module" src="firebaseAuth.js"></script>
+        <a href="register.html">Create an Account</a>
+    </main>
+    <script type="module">
+        import { handleLogin } from "./firebaseAuth.js";
+        handleLogin("login-form");
+    </script>
 </body>
 </html>
