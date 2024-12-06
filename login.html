@@ -4,29 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="tryout.css">
 </head>
-<body class="auth-page">
+<body class="login-page">
     <header>
         <script src="global-header.js"></script>
     </header>
+
     <main class="auth-container">
-        <h1>Sign In</h1>
+        <h1>Login</h1>
         <form id="login-form">
-            <div>
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email" required>
-            </div>
-            <div>
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Enter your password" required>
-            </div>
-            <button type="submit">Sign In</button>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            
+            <button type="submit">Log In</button>
         </form>
-        <a href="register.html">Create an Account</a>
+        <p>Don't have an account? <a href="register.html">Register here</a></p>
+        <p>Forgot your password? <a href="reset.html">Reset it</a></p>
     </main>
-    <script type="module">
-        import { handleLogin } from "./firebaseAuth.js";
-        handleLogin("login-form");
-    </script>
 </body>
 </html>
