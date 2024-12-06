@@ -4,22 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reset Password</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tryout.css">
 </head>
-<body class="auth-page">
-    <script src="global-header.js"></script>
-    <div class="auth-container">
-        <h1>Reset Your Password</h1>
-        <p>Enter your email address, and we'll send you instructions to reset your password.</p>
+<body class="reset-page">
+    <header>
+        <script src="global-header.js"></script>
+    </header>
+
+    <main class="auth-container">
+        <h1>Reset Password</h1>
         <form id="reset-form">
-            <div class="input-group">
-                <i class="fas fa-envelope"></i>
-                <input type="email" id="email" placeholder="Email Address" required>
-            </div>
-            <button type="submit">Send Reset Link</button>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            
+            <button type="submit">Reset Password</button>
         </form>
-        <a href="login.html">Back to Sign In</a>
-    </div>
-    <script type="module" src="firebaseAuth.js"></script>
+        <p>Remembered your password? <a href="login.html">Log in here</a></p>
+    </main>
 </body>
 </html>
