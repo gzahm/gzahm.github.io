@@ -1,33 +1,28 @@
-/* global-header.css */
-
-/* Header Styles */
+/* Global Header Styles */
 header {
     background-color: #FF6700;
-    padding: 15px 0;
     color: white;
-    position: relative;
-    z-index: 100;
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
 }
 
 .logo-container img {
-    height: 50px;
-    margin-left: 20px;
+    width: 120px;
+    height: auto;
 }
 
 .header-title {
-    font-family: 'Arial', sans-serif;
-    font-size: 24px;
-    font-weight: bold;
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
 }
 
 .global-nav ul {
-    list-style: none;
     display: flex;
-    margin: 0;
+    list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .global-nav ul li {
@@ -37,72 +32,47 @@ header {
 .global-nav ul a {
     text-decoration: none;
     color: white;
-    padding: 5px 10px;
+    font-weight: bold;
+    padding: 10px 15px;
     border-radius: 5px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
 }
 
 .global-nav ul a:hover {
     background-color: #005f73;
 }
 
-/* Hamburger Button */
 .hamburger {
-    display: none; /* Hidden by default on larger screens */
+    display: none;
     cursor: pointer;
     position: absolute;
     top: 15px;
     right: 15px;
-    z-index: 100;
-    width: 35px;
-    height: 30px;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    background-color: transparent;
-    border: none;
-    padding: 0;
 }
 
 .hamburger span {
     display: block;
     background-color: white;
     height: 4px;
-    width: 100%;
-    border-radius: 2px;
-    transition: transform 0.3s ease;
+    margin: 4px 0;
 }
 
-/* Animation for Active State */
-.hamburger.active span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-}
-.hamburger.active span:nth-child(2) {
-    opacity: 0;
-}
-.hamburger.active span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-}
-
-/* Mobile Navigation */
 @media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
     .global-nav ul {
-        display: none; /* Hide navigation links by default */
-        flex-direction: column; /* Stack links vertically */
+        display: none;
+        flex-direction: column;
+        background-color: #FF6700;
         position: absolute;
         top: 60px;
         right: 0;
-        background-color: #FF6700;
         width: 100%;
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
     }
 
     .global-nav ul.show {
-        display: flex; /* Show navigation when toggled */
-    }
-
-    .hamburger {
-        display: flex; /* Show hamburger button */
+        display: flex;
     }
 }
-
